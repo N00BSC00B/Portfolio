@@ -20,7 +20,7 @@
             "- Comes with various **message-based games** like Guess The Number, Tic-Tac-Toe (with minimax AI), and Rock-Paper-Scissors.",
             "- Offers **miscellaneous utility features** such as Discord avatar lookup, Pokedex entries, competitive Pokemon sets from Smogon, Pokemon weakness analysis, and learnset information."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/rotom_bot.png",
+        "image": "projects/rotom_bot.png",
         "githubUrl": "https://github.com/the-pokehub/Rotom-Bot",
         "demoUrl": null
     },
@@ -41,7 +41,7 @@
             "- **PyQt GUI**: Offers a user-friendly desktop application for managing inventory with features like search, pagination, context menus, and real-time updates.",
             "- Enables a comprehensive workflow for Digital Content Creation (DCC) environments."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/blender.png",
+        "image": "projects/blender.png",
         "githubUrl": "https://github.com/N00BSC00B/DCC-Integration-with-Blender",
         "demoUrl": null
     },
@@ -64,7 +64,7 @@
             "- Provides an intuitive PyQt6-based GUI for cross-platform compatibility and control.",
             "- Designed with a compact setup, assembled on a dot matrix board and enclosed in a custom housing."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/jhagmag.jpg",
+        "image": "projects/jhagmag.jpg",
         "githubUrl": "https://github.com/N00BSC00B/Jhagmag-LED-Controller",
         "demoUrl": null
     },
@@ -87,7 +87,7 @@
             "- Comes with a **responsive design** for optimal viewing across various screen sizes.",
             "- Provides both a **web-based Flask application** and a **command-prompt based Python client** for connection."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/private_chat.png",
+        "image": "projects/private_chat.png",
         "githubUrl": "https://github.com/N00BSC00B/Private-Chat",
         "demoUrl": "http://87.106.36.114:6017/"
     },
@@ -108,7 +108,7 @@
             "- Packaged as a **standalone .exe**, requiring no Python installation or external dependencies.",
             "- Provides a user-friendly graphical interface for seamless navigation and course exploration."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/udemy.png",
+        "image": "projects/udemy.png",
         "githubUrl": "https://github.com/N00BSC00B/Udemy-Free-Course-Grabber",
         "demoUrl": null
     },
@@ -130,7 +130,7 @@
             "- Highly **customizable settings** for AI name, hotkeys, and more.",
             "- Provides a streamlined way to interact with your computer using natural language."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/assistant.png",
+        "image": "projects/assistant.png",
         "githubUrl": "https://github.com/assistantdost/Personal-Assistant",
         "demoUrl": null
     },
@@ -149,7 +149,7 @@
             "- Supports both **local multiplayer** and **single-player against a computer AI**.",
             "- Provides a simple, engaging way to play Noughts and Crosses on your desktop."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/play.png",
+        "image": "projects/play.png",
         "githubUrl": "https://github.com/N00BSC00B/tic-tac-toe",
         "demoUrl": null
     },
@@ -169,7 +169,7 @@
             "- Enables **downloading the personal assistant application** and staying updated with **changelogs**.",
             "- Offers **password recovery** functionality and allows users to view **status updates** related to the assistant."
         ],
-        "image": "https://n00bsc00b.github.io/portfolio/projects/dost.jpg",
+        "image": "projects/dost.jpg",
         "githubUrl": "https://github.com/assistantdost/Web",
         "demoUrl": "https://web-dost.onrender.com"
     }
