@@ -30,7 +30,9 @@ export const ExperienceSection = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await fetch("/data/experience.json");
+        const res = await fetch(
+          `${import.meta.env.BASE_URL}data/experience.json`
+        );
         const data = await res.json();
         setExperiences(data);
       } catch (err) {

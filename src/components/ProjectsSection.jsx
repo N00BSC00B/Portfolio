@@ -11,7 +11,9 @@ export const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("/data/projects.json");
+        const res = await fetch(
+          `${import.meta.env.BASE_URL}data/projects.json`
+        );
         const data = await res.json();
         setProjects(data);
       } catch (err) {

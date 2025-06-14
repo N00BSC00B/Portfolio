@@ -1,7 +1,7 @@
 [
     {
         "company": "Google Developer Groups",
-        "logoUrl": "/logos/gdg.jpeg",
+        "logoUrl": "https://n00bsc00b.github.io/portfolio/logos/gdg.jpeg",
         "startDate": "2023-09-01",
         "endDate": null,
         "roles": [
@@ -18,7 +18,7 @@
     },
     {
         "company": "CyberCell BCET",
-        "logoUrl": "/logos/cybercell.jpeg",
+        "logoUrl": "https://n00bsc00b.github.io/portfolio/logos/cybercell.jpeg",
         "startDate": "2023-09-01",
         "endDate": null,
         "roles": [
