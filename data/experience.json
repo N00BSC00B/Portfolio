@@ -1,0 +1,43 @@
+[
+    {
+        "company": "Google Developer Groups",
+        "logoUrl": "/logos/gdg.jpeg",
+        "startDate": "2023-09-01",
+        "endDate": null,
+        "roles": [
+            {
+                "title": "Python Team Lead",
+                "startDate": "2023-09-01",
+                "endDate": null,
+                "description": [
+                    "Organizing Python-related workshops and projects.",
+                    "Collaborating with peers to bring industry experts for guest lectures."
+                ]
+            }
+        ]
+    },
+    {
+        "company": "CyberCell BCET",
+        "logoUrl": "/logos/cybercell.jpeg",
+        "startDate": "2023-09-01",
+        "endDate": null,
+        "roles": [
+            {
+                "title": "Organizer",
+                "startDate": "2024-07-01",
+                "endDate": null,
+                "description": [
+                    "Organized workshops and events for students to enhance their skills."
+                ]
+            },
+            {
+                "title": "Coordinator",
+                "startDate": "2023-09-01",
+                "endDate": "2024-07-01",
+                "description": [
+                    "Coordinated events and workshops for students."
+                ]
+            }
+        ]
+    }
+]
