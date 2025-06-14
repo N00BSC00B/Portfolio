@@ -30,9 +30,7 @@ export const ExperienceSection = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await fetch(
-          `${import.meta.env.BASE_URL}data/experience.json`
-        );
+        const res = await fetch(`./data/experience.json`);
         const data = await res.json();
         setExperiences(data);
       } catch (err) {
@@ -62,7 +60,7 @@ export const ExperienceSection = () => {
             <div key={idx} className="bg-card p-6 rounded-xl shadow-md">
               <div className="flex items-start space-x-4 mb-4">
                 <img
-                  src={`${import.meta.env.BASE_URL}${exp.logoUrl}`}
+                  src={`./${exp.logoUrl}`}
                   alt={exp.company}
                   className="w-12 h-12 object-contain rounded-md border"
                 />
