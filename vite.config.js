@@ -6,4 +6,13 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/Portfolio/",
+  resolve: {
+    alias: {
+      "@": "/src",
+      "@components": "/src/components",
+      "@pages": "/src/pages",
+      "@hooks": "/src/hooks",
+      "@lib": "/src/lib",
+    },
+  },
 });
