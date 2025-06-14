@@ -139,7 +139,7 @@ export const ProjectsSection = () => {
                 >
                   <div className="max-h-48 overflow-hidden">
                     <img
-                      src={project.image}
+                      src={`${import.meta.env.BASE_URL}${project.image}`}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -212,7 +212,7 @@ export const ProjectsSection = () => {
             </button>
 
             <img
-              src={activeProject.image}
+              src={`${import.meta.env.BASE_URL}${activeProject.image}`}
               alt={activeProject.title}
               className="w-full object-cover rounded-md mb-4"
             />

@@ -62,7 +62,7 @@ export const ExperienceSection = () => {
             <div key={idx} className="bg-card p-6 rounded-xl shadow-md">
               <div className="flex items-start space-x-4 mb-4">
                 <img
-                  src={exp.logoUrl}
+                  src={`${import.meta.env.BASE_URL}${exp.logoUrl}`}
                   alt={exp.company}
                   className="w-12 h-12 object-contain rounded-md border"
                 />
