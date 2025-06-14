@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { StarBackground } from "@/components/StarBackground";
-import { Navbar } from "@/components/Navbar";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { StarBackground } from "../components/StarBackground";
+import { Navbar } from "../components/Navbar";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 const NotFound = () => {
   return (
