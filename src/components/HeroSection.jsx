@@ -1,32 +1,29 @@
-import { ArrowDown } from "lucide-react";
-
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex flex-col items-start justify-center px-4 md:px-6 lg:px-8 pt-12" // Reduced top padding
     >
-      <div className="container max-w-4xl mx-auto text-center md:text-left z-10">
-        {" "}
-        {/* Adjusted text alignment for larger screens */}
+      <div className="container max-w-4xl mx-auto text-left z-10">
         <div className="md:flex md:items-center md:space-x-8">
-          {" "}
-          {/* Flex container for image and text */}
           {/* Your Picture */}
-          <div className="flex-shrink-0 mb-8 md:mb-0 md:w-1/3 flex justify-center">
-            {" "}
-            {/* Centered on small, left on large */}
+          <div className="flex-shrink-0 mb-8 md:mb-0 md:w-1/3 lg:w-2/4 flex justify-center md:justify-start">
             <img
-              src="/favicon.png" // <--- IMPORTANT: Change this to your image path
+              src="/favicon.jpg"
               alt="Sayan Barma"
-              className="rounded-full w-75 h-75 object-cover border-4 border-primary shadow-lg animate-fade-in" // Slightly larger image
+              className="rounded-full object-cover border-4 border-primary shadow-lg animate-fade-in
+      w-48 h-48       // ~128px for small screens
+      sm:w-52 sm:h-52 // ~80px for slightly larger
+      md:w-56 md:h-56 // ~112px for medium screens
+      lg:w-80 lg:h-80 // ~288px for large screens
+      xl:w-96 xl:h-96 // ~384px for extra large screens
+      "
             />
           </div>
+
           <div className="space-y-6 md:w-2/3">
-            {" "}
-            {/* Text content takes remaining space */}
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              <span className="opacity-0 animate-fade-in"> Hi, I&#39;m</span>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
+              <span className="opacity-0 animate-fade-in">Hi, I&#39;m</span>
               <span className="text-primary opacity-0 animate-fade-in-delay-1">
                 {" "}
                 Sayan
@@ -35,7 +32,7 @@ export const HeroSection = () => {
                 Barma
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto md:mx-0 opacity-0 animate-fade-in-delay-3">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl opacity-0 animate-fade-in-delay-3">
               <span className="text-primary">Full-Stack Developer</span> with a
               passion for crafting secure and scalable applications. I build
               intuitive user experiences and robust systems across various
@@ -49,11 +46,6 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-        <ArrowDown className="h-5 w-5 text-primary" />
       </div>
     </section>
   );

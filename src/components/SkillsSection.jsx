@@ -71,7 +71,6 @@ const skills = {
     "RSA Encryption": "https://cdn-icons-png.flaticon.com/512/2917/2917995.png",
   },
 };
-
 export const SkillsSection = () => {
   const [active, setActive] = useState("lang");
 
@@ -106,12 +105,12 @@ export const SkillsSection = () => {
           {Object.entries(skills[active]).map(([skill, icon], idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center text-center p-4 bg-primary/80 text-gray-800 rounded-xl shadow hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="flex flex-col items-center justify-center text-center p-3 sm:p-4 md:p-5 lg:p-6 bg-primary/80 text-gray-800 rounded-xl shadow hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <img
                 src={icon}
                 alt={skill}
-                className="w-[70px] h-[70px] object-contain mb-2"
+                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain mb-2"
               />
               <span className="text-sm font-medium">{skill}</span>
             </div>

@@ -72,6 +72,7 @@ export const StarBackground = () => {
             top: star.y + "%",
             opacity: star.opacity,
             animationDuration: star.animationDuration + "s",
+            boxShadow: `0 0 8px 2px rgba(59, 130, 246, 0.6)`,
           }}
         />
       ))}
@@ -87,6 +88,7 @@ export const StarBackground = () => {
             top: meteor.y + "%",
             animationDelay: meteor.delay,
             animationDuration: meteor.animationDuration + "s",
+            boxShadow: `0 0 8px 2px rgba(59, 130, 246, 0.6)`,
           }}
         />
       ))}

@@ -107,7 +107,7 @@ export const ProjectsSection = () => {
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
-              className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors duration-300 whitespace-nowrap ${
+              className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border transition-colors duration-300 whitespace-nowrap ${
                 selectedTags.includes(tag)
                   ? "bg-primary text-primary-foreground"
                   : "bg-background text-foreground hover:bg-secondary"

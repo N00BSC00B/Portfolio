@@ -2,6 +2,7 @@ import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", id: "hero" },
@@ -29,16 +30,12 @@ export const Navbar = () => {
 
   const handleNavClick = (id) => {
     if (location.pathname === "/") {
-      // On homepage: scroll to section
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Not on homepage: navigate with hash
       navigate(`/#${id}`);
     }
-
-    // Close mobile menu if open
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Close mobile menu on nav click
   };
 
   return (
@@ -59,8 +56,8 @@ export const Navbar = () => {
           </span>
         </button>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop nav and Theme Toggle */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <button
               key={key}
@@ -70,16 +67,22 @@ export const Navbar = () => {
               {item.name}
             </button>
           ))}
+          {/* Use the unified ThemeToggle for Desktop */}
+          <ThemeToggle />
         </div>
 
-        {/* mobile nav toggle */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile nav toggle and Theme Toggle */}
+        <div className="md:hidden flex items-center space-x-2">
+          {/* Use the unified ThemeToggle for Mobile (always visible) */}
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="p-2 text-foreground z-50"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {/* mobile nav overlay */}
         <div
@@ -101,6 +104,7 @@ export const Navbar = () => {
                 {item.name}
               </button>
             ))}
+            {/* NO Theme Toggle here - it's already next to the hamburger icon */}
           </div>
         </div>
       </div>
