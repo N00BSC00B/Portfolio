@@ -23,9 +23,17 @@
         "endDate": null,
         "roles": [
             {
+                "title": "Mentor",
+                "startDate": "2025-07-01",
+                "endDate": null,
+                "description": [
+                    "Organized workshops and events for students to enhance their skills."
+                ]
+            },
+            {
                 "title": "Organizer",
                 "startDate": "2024-07-01",
-                "endDate": null,
+                "endDate": "2025-07-01",
                 "description": [
                     "Organized workshops and events for students to enhance their skills."
                 ]

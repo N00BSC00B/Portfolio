@@ -1,6 +1,73 @@
 [
     {
         "id": 1,
+        "title": "JobiPilot: AI-Powered Job Application Automation",
+        "tags": [
+            "Automation",
+            "n8n",
+            "AI",
+            "LLM",
+            "Gemini",
+            "Google Sheets",
+            "API Integration"
+        ],
+        "description": [
+            "• An automated n8n workflow that builds a daily job application pipeline from multiple sources.",
+            "• Fetches job listings from various RSS feeds (Himalayas, Remotive, WWR) and the JSearch API.",
+            "• Filters listings by date and relevant keywords (e.g., 'backend', 'python', 'developer') to curate a list of suitable opportunities.",
+            "• Utilizes Google's Gemini 2.5 Pro model via LangChain to analyze each job against a personal resume, generating a match score, a tailored cover letter, and resume improvement suggestions.",
+            "• Automatically personalizes a base LaTeX resume for each specific job application based on the AI's feedback.",
+            "• Populates a Google Sheet with all curated jobs and AI-generated content, and sends a Discord notification upon completion."
+        ],
+        "image": "projects/jobipilot.png",
+        "githubUrl": null,
+        "demoUrl": null
+    },
+    {
+        "id": 2,
+        "title": "Udemy Free Course Grabber",
+        "tags": [
+            "React",
+            "Electron",
+            "Capacitor",
+            "Cross-Platform",
+            "Vite",
+            "Udemy"
+        ],
+        "description": [
+            "• A cross-platform application for Windows and Android to discover and access thousands of free Udemy courses.",
+            "• Built with a modern tech stack including React, Vite, Electron for desktop, and Capacitor for mobile.",
+            "• Features smart filtering by category, rating, and duration, along with real-time search functionality.",
+            "• Offers a responsive design with dark/light themes for a seamless user experience across all devices.",
+            "• Fetches the latest course data in real-time from course aggregation APIs, with acknowledgments to the Real Discount API."
+        ],
+        "image": "projects/udemy.png",
+        "githubUrl": "https://github.com/N00BSC00B/Udemy-Free-Course-Grabber",
+        "demoUrl": null
+    },
+    {
+        "id": 3,
+        "title": "DCC Integration with Blender",
+        "tags": [
+            "Blender",
+            "FastAPI",
+            "PyQt",
+            "Python",
+            "SQLite"
+        ],
+        "description": [
+            "• Integrates Blender with a FastAPI server and a PyQt-based GUI for seamless inventory and object transformation management.",
+            "• **Blender Plugin**: Provides inventory display and object transformation capabilities directly within Blender's sidebar.",
+            "• **FastAPI Server**: Handles inventory management (add, remove, update, fetch items) and object transformation requests (position, rotation, scale).",
+            "• **PyQt GUI**: Offers a user-friendly desktop application for managing inventory with features like search, pagination, context menus, and real-time updates.",
+            "• Enables a comprehensive workflow for Digital Content Creation (DCC) environments."
+        ],
+        "image": "projects/blender.png",
+        "githubUrl": "https://github.com/N00BSC00B/DCC-Integration-with-Blender",
+        "demoUrl": null
+    },
+    {
+        "id": 4,
         "title": "Rotom Bot",
         "tags": [
             "Python",
@@ -25,51 +92,7 @@
         "demoUrl": null
     },
     {
-        "id": 2,
-        "title": "DCC Integration with Blender",
-        "tags": [
-            "Blender",
-            "FastAPI",
-            "PyQt",
-            "Python",
-            "SQLite"
-        ],
-        "description": [
-            "• Integrates Blender with a FastAPI server and a PyQt-based GUI for seamless inventory and object transformation management.",
-            "• **Blender Plugin**: Provides inventory display and object transformation capabilities directly within Blender's sidebar.",
-            "• **FastAPI Server**: Handles inventory management (add, remove, update, fetch items) and object transformation requests (position, rotation, scale).",
-            "• **PyQt GUI**: Offers a user-friendly desktop application for managing inventory with features like search, pagination, context menus, and real-time updates.",
-            "• Enables a comprehensive workflow for Digital Content Creation (DCC) environments."
-        ],
-        "image": "projects/blender.png",
-        "githubUrl": "https://github.com/N00BSC00B/DCC-Integration-with-Blender",
-        "demoUrl": null
-    },
-    {
-        "id": 3,
-        "title": "Jhagmag LED Controller",
-        "tags": [
-            "Arduino",
-            "HC-05",
-            "Bluetooth",
-            "PyQt6",
-            "LED",
-            "Python"
-        ],
-        "description": [
-            "• An Arduino-based LED controller for vibrant, customizable lighting effects.",
-            "• Features Bluetooth control via HC-05 module and optional push-button for offline pattern swapping.",
-            "• Offers a variety of LED patterns including Solid, Fade, Cycle, Rainbow Cycle, Breathing, and Random.",
-            "• Includes advanced features like real-time audio visualization and screen color detection.",
-            "• Provides an intuitive PyQt6-based GUI for cross-platform compatibility and control.",
-            "• Designed with a compact setup, assembled on a dot matrix board and enclosed in a custom housing."
-        ],
-        "image": "projects/jhagmag.jpg",
-        "githubUrl": "https://github.com/N00BSC00B/Jhagmag-LED-Controller",
-        "demoUrl": null
-    },
-    {
-        "id": 4,
+        "id": 5,
         "title": "Private Chat Application",
         "tags": [
             "Flask",
@@ -92,28 +115,30 @@
         "demoUrl": "http://87.106.36.114:6017/"
     },
     {
-        "id": 5,
-        "title": "Udemy Free Course Grabber",
+        "id": 6,
+        "title": "Jhagmag LED Controller",
         "tags": [
-            "Python",
-            "Web Scraping",
-            "GUI",
-            "Standalone Application",
-            "Udemy"
+            "Arduino",
+            "HC-05",
+            "Bluetooth",
+            "PyQt6",
+            "LED",
+            "Python"
         ],
         "description": [
-            "• A standalone Windows executable application designed to discover and provide download links for Udemy's free courses from 'answersq.com'.",
-            "• Offers **course scraping** functionality to fetch the latest free course details.",
-            "• Includes a **search function** to easily find specific courses using keywords.",
-            "• Packaged as a **standalone .exe**, requiring no Python installation or external dependencies.",
-            "• Provides a user-friendly graphical interface for seamless navigation and course exploration."
+            "• An Arduino-based LED controller for vibrant, customizable lighting effects.",
+            "• Features Bluetooth control via HC-05 module and optional push-button for offline pattern swapping.",
+            "• Offers a variety of LED patterns including Solid, Fade, Cycle, Rainbow Cycle, Breathing, and Random.",
+            "• Includes advanced features like real-time audio visualization and screen color detection.",
+            "• Provides an intuitive PyQt6-based GUI for cross-platform compatibility and control.",
+            "• Designed with a compact setup, assembled on a dot matrix board and enclosed in a custom housing."
         ],
-        "image": "projects/udemy.png",
-        "githubUrl": "https://github.com/N00BSC00B/Udemy-Free-Course-Grabber",
+        "image": "projects/jhagmag.jpg",
+        "githubUrl": "https://github.com/N00BSC00B/Jhagmag-LED-Controller",
         "demoUrl": null
     },
     {
-        "id": 6,
+        "id": 7,
         "title": "Personal Assistant",
         "tags": [
             "Python",
@@ -135,25 +160,6 @@
         "demoUrl": null
     },
     {
-        "id": 7,
-        "title": "Tic Tac Toe GUI",
-        "tags": [
-            "Python",
-            "Tkinter",
-            "GUI",
-            "Standalone Application"
-        ],
-        "description": [
-            "• A standalone Windows application for playing the classic Tic Tac Toe game.",
-            "• Features a user-friendly graphical interface built with **CustomTkinter**.",
-            "• Supports both **local multiplayer** and **single-player against a computer AI**.",
-            "• Provides a simple, engaging way to play Noughts and Crosses on your desktop."
-        ],
-        "image": "projects/play.png",
-        "githubUrl": "https://github.com/N00BSC00B/tic-tac-toe",
-        "demoUrl": null
-    },
-    {
         "id": 8,
         "title": "DOST Web",
         "tags": [
@@ -172,5 +178,24 @@
         "image": "projects/dost.jpg",
         "githubUrl": "https://github.com/assistantdost/Web",
         "demoUrl": "https://web-dost.onrender.com"
+    },
+    {
+        "id": 9,
+        "title": "Tic Tac Toe GUI",
+        "tags": [
+            "Python",
+            "Tkinter",
+            "GUI",
+            "Standalone Application"
+        ],
+        "description": [
+            "• A standalone Windows application for playing the classic Tic Tac Toe game.",
+            "• Features a user-friendly graphical interface built with **CustomTkinter**.",
+            "• Supports both **local multiplayer** and **single-player against a computer AI**.",
+            "• Provides a simple, engaging way to play Noughts and Crosses on your desktop."
+        ],
+        "image": "projects/play.png",
+        "githubUrl": "https://github.com/N00BSC00B/tic-tac-toe",
+        "demoUrl": null
     }
 ]

@@ -1,109 +1,199 @@
 import { Briefcase, Code, User } from "lucide-react";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "./ScrollReveal";
+import { GlassmorphismCard } from "./GlassmorphismCard";
 
 export const AboutSection = () => {
+  const stats = [
+    { number: "10+", label: "Projects Built" },
+    { number: "2+", label: "Years Experience" },
+    { number: "10+", label: "Technologies" },
+    { number: "100%", label: "Passion" },
+  ];
+
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-left">
-          About <span className="text-primary">Me</span>
-        </h2>
+    <section id="about" className="py-24 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto max-w-5xl relative z-10">
+        <ScrollReveal>
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-12 text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            About{" "}
+            <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              Me
+            </span>
+          </motion.h2>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-left">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Full-Stack Developer & Python Enthusiast
-            </h3>
-
-            <p className="text-muted-foreground">
-              I&#39;m a B.Tech CSE student at BCET with a passion for building
-              secure, performant, and user-friendly applications. I specialize
-              in Python-based development and full-stack web solutions using
-              FastAPI, Flask, and the MERN stack.
-            </p>
-
-            <p className="text-muted-foreground">
-              My projects span across web apps, Discord bots, automation tools,
-              and hardware-software integrations. I&#39;m always exploring ways
-              to combine backend efficiency with intuitive frontends using
-              real-time technologies like WebSockets and PyQt.
-            </p>
-
-            <div className="text-center flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                Get In Touch
-              </a>
-
-              <a
-                href={`./resume.pdf`}
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+          <ScrollReveal delay={0.2}>
+            <div className="space-y-6">
+              <motion.h3
+                className="text-2xl font-semibold"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Resume
-              </a>
-            </div>
-          </div>
+                Full-Stack Developer & Python Enthusiast
+              </motion.h3>
 
-          <div className="grid grid-cols-1 gap-6">
-            {/* Full-Stack Development Card */}
-            <div className="gradient-border p-[1px] rounded-xl card-hover">
-              <div className="bg-primary/20 rounded-xl p-5">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-primary/10">
-                    <Code className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-semibold text-lg">
-                      Full-Stack Development
-                    </h4>
-                    <p className="text-muted-foreground">
-                      Creating scalable apps with FastAPI, Flask, MongoDB, and
-                      modern front-end frameworks.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <motion.p
+                className="text-muted-foreground leading-relaxed"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                I&#39;m a B.Tech CSE student at BCET with a passion for building
+                secure, performant, and user-friendly applications. I specialize
+                in Python-based development and full-stack web solutions using
+                FastAPI, Flask, and the MERN stack.
+              </motion.p>
 
-            {/* UI/UX & Real-Time Features Card */}
-            <div className="gradient-border p-[1px] rounded-xl card-hover">
-              <div className="bg-primary/20 rounded-xl p-5">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-primary/10">
-                    <User className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-semibold text-lg">
-                      UI/UX & Real-Time Features
-                    </h4>
-                    <p className="text-muted-foreground">
-                      Designing smooth user interfaces and integrating real-time
-                      functionality with WebSockets and PyQt.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <motion.p
+                className="text-muted-foreground leading-relaxed"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                My projects span across web apps, Discord bots, automation
+                tools, and hardware-software integrations. I&#39;m always
+                exploring ways to combine backend efficiency with intuitive
+                frontends using real-time technologies like WebSockets and PyQt.
+              </motion.p>
 
-            {/* Project Experience Card */}
-            <div className="gradient-border p-[1px] rounded-xl card-hover">
-              <div className="bg-primary/20 rounded-xl p-5">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-primary/10">
-                    <Briefcase className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-semibold text-lg">
-                      Project Experience
-                    </h4>
-                    <p className="text-muted-foreground">
-                      From Discord bots and automation tools to Blender
-                      integrations and LED systems, I love building creative
-                      solutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* Stats Section */}
+              <motion.div
+                className="grid grid-cols-2 gap-4 py-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {stats.map((stat, index) => (
+                  <GlassmorphismCard key={index} className="p-4 text-center">
+                    <motion.div
+                      initial={{ scale: 0.5 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <div className="text-2xl font-bold text-primary">
+                        {stat.number}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  </GlassmorphismCard>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <motion.a
+                  href="#contact"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Get In Touch</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+
+                <motion.a
+                  href={`./resume.pdf`}
+                  className="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-semibold border-2 border-primary text-primary rounded-full overflow-hidden transition-all duration-300 hover:bg-primary hover:text-white"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Resume
+                </motion.a>
+              </motion.div>
             </div>
-          </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.3} direction="right">
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                {
+                  icon: Code,
+                  title: "Full-Stack Development",
+                  description:
+                    "Creating scalable apps with FastAPI, Flask, MongoDB, and modern front-end frameworks.",
+                  gradient: "from-blue-500/20 to-cyan-500/20",
+                },
+                {
+                  icon: User,
+                  title: "UI/UX & Real-Time Features",
+                  description:
+                    "Designing smooth user interfaces and integrating real-time functionality with WebSockets and PyQt.",
+                  gradient: "from-purple-500/20 to-pink-500/20",
+                },
+                {
+                  icon: Briefcase,
+                  title: "Project Experience",
+                  description:
+                    "From Discord bots and automation tools to Blender integrations and LED systems, I love building creative solutions.",
+                  gradient: "from-orange-500/20 to-red-500/20",
+                },
+              ].map((card, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <GlassmorphismCard
+                    className={`p-6 bg-gradient-to-br ${card.gradient} hover:scale-105 transition-transform duration-300`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <motion.div
+                        className="p-3 rounded-full bg-primary/20 backdrop-blur-sm"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <card.icon className="h-6 w-6 text-primary" />
+                      </motion.div>
+                      <div className="text-left flex-1">
+                        <motion.h4
+                          className="font-semibold text-lg mb-2"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.2 }}
+                        >
+                          {card.title}
+                        </motion.h4>
+                        <motion.p
+                          className="text-muted-foreground leading-relaxed"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.3 }}
+                        >
+                          {card.description}
+                        </motion.p>
+                      </div>
+                    </div>
+                  </GlassmorphismCard>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
