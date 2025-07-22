@@ -105,7 +105,7 @@ export const SkillsSection = () => {
           {Object.entries(skills[active]).map(([skill, icon], idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center text-center p-3 sm:p-4 md:p-5 lg:p-6 bg-primary/80 text-gray-800 rounded-xl shadow hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="flex flex-col items-center justify-center text-center p-3 sm:p-4 md:p-5 lg:p-6 bg-primary/20 text-primary rounded-xl shadow hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <img
                 src={icon}

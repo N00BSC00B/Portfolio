@@ -10,15 +10,15 @@
             "Showdown API"
         ],
         "description": [
-            "- A comprehensive Discord server management bot built with discord.py for 'The Pokehub' server.",
-            "- Automates **tournament registration** and management, integrating with the **Pokemon Showdown API** for verification.",
-            "- Manages **user roles and leagues** for annual Pokemon league-style events.",
-            "- Offers a **role management system** for 'Villain Teams' with timed access to secret chats.",
-            "- Includes a **profanity filter** for a family-friendly community environment.",
-            "- Features **text translation** powered by Googletrans, and **dictionary lookups** (Urban Dictionary and English Dictionary).",
-            "- Provides 'snipe' and 'edit snipe' features for recovering recent messages.",
-            "- Comes with various **message-based games** like Guess The Number, Tic-Tac-Toe (with minimax AI), and Rock-Paper-Scissors.",
-            "- Offers **miscellaneous utility features** such as Discord avatar lookup, Pokedex entries, competitive Pokemon sets from Smogon, Pokemon weakness analysis, and learnset information."
+            "• A comprehensive Discord server management bot built with discord.py for 'The Pokehub' server.",
+            "• Automates **tournament registration** and management, integrating with the **Pokemon Showdown API** for verification.",
+            "• Manages **user roles and leagues** for annual Pokemon league-style events.",
+            "• Offers a **role management system** for 'Villain Teams' with timed access to secret chats.",
+            "• Includes a **profanity filter** for a family-friendly community environment.",
+            "• Features **text translation** powered by Googletrans, and **dictionary lookups** (Urban Dictionary and English Dictionary).",
+            "• Provides 'snipe' and 'edit snipe' features for recovering recent messages.",
+            "• Comes with various **message-based games** like Guess The Number, Tic-Tac-Toe (with minimax AI), and Rock-Paper-Scissors.",
+            "• Offers **miscellaneous utility features** such as Discord avatar lookup, Pokedex entries, competitive Pokemon sets from Smogon, Pokemon weakness analysis, and learnset information."
         ],
         "image": "projects/rotom_bot.png",
         "githubUrl": "https://github.com/the-pokehub/Rotom-Bot",
@@ -35,11 +35,11 @@
             "SQLite"
         ],
         "description": [
-            "- Integrates Blender with a FastAPI server and a PyQt-based GUI for seamless inventory and object transformation management.",
-            "- **Blender Plugin**: Provides inventory display and object transformation capabilities directly within Blender's sidebar.",
-            "- **FastAPI Server**: Handles inventory management (add, remove, update, fetch items) and object transformation requests (position, rotation, scale).",
-            "- **PyQt GUI**: Offers a user-friendly desktop application for managing inventory with features like search, pagination, context menus, and real-time updates.",
-            "- Enables a comprehensive workflow for Digital Content Creation (DCC) environments."
+            "• Integrates Blender with a FastAPI server and a PyQt-based GUI for seamless inventory and object transformation management.",
+            "• **Blender Plugin**: Provides inventory display and object transformation capabilities directly within Blender's sidebar.",
+            "• **FastAPI Server**: Handles inventory management (add, remove, update, fetch items) and object transformation requests (position, rotation, scale).",
+            "• **PyQt GUI**: Offers a user-friendly desktop application for managing inventory with features like search, pagination, context menus, and real-time updates.",
+            "• Enables a comprehensive workflow for Digital Content Creation (DCC) environments."
         ],
         "image": "projects/blender.png",
         "githubUrl": "https://github.com/N00BSC00B/DCC-Integration-with-Blender",
@@ -57,12 +57,12 @@
             "Python"
         ],
         "description": [
-            "- An Arduino-based LED controller for vibrant, customizable lighting effects.",
-            "- Features Bluetooth control via HC-05 module and optional push-button for offline pattern swapping.",
-            "- Offers a variety of LED patterns including Solid, Fade, Cycle, Rainbow Cycle, Breathing, and Random.",
-            "- Includes advanced features like real-time audio visualization and screen color detection.",
-            "- Provides an intuitive PyQt6-based GUI for cross-platform compatibility and control.",
-            "- Designed with a compact setup, assembled on a dot matrix board and enclosed in a custom housing."
+            "• An Arduino-based LED controller for vibrant, customizable lighting effects.",
+            "• Features Bluetooth control via HC-05 module and optional push-button for offline pattern swapping.",
+            "• Offers a variety of LED patterns including Solid, Fade, Cycle, Rainbow Cycle, Breathing, and Random.",
+            "• Includes advanced features like real-time audio visualization and screen color detection.",
+            "• Provides an intuitive PyQt6-based GUI for cross-platform compatibility and control.",
+            "• Designed with a compact setup, assembled on a dot matrix board and enclosed in a custom housing."
         ],
         "image": "projects/jhagmag.jpg",
         "githubUrl": "https://github.com/N00BSC00B/Jhagmag-LED-Controller",
@@ -80,12 +80,12 @@
             "Chat Application"
         ],
         "description": [
-            "- A private chat application built with Flask, Socket.IO, and WebSockets.",
-            "- Enables **real-time communication** between users in chat rooms.",
-            "- Features **RSA encryption** for secure message exchange.",
-            "- Allows users to **share media files** within the chat environment.",
-            "- Comes with a **responsive design** for optimal viewing across various screen sizes.",
-            "- Provides both a **web-based Flask application** and a **command-prompt based Python client** for connection."
+            "• A private chat application built with Flask, Socket.IO, and WebSockets.",
+            "• Enables **real-time communication** between users in chat rooms.",
+            "• Features **RSA encryption** for secure message exchange.",
+            "• Allows users to **share media files** within the chat environment.",
+            "• Comes with a **responsive design** for optimal viewing across various screen sizes.",
+            "• Provides both a **web-based Flask application** and a **command-prompt based Python client** for connection."
         ],
         "image": "projects/private_chat.png",
         "githubUrl": "https://github.com/N00BSC00B/Private-Chat",
@@ -102,11 +102,11 @@
             "Udemy"
         ],
         "description": [
-            "- A standalone Windows executable application designed to discover and provide download links for Udemy's free courses from 'answersq.com'.",
-            "- Offers **course scraping** functionality to fetch the latest free course details.",
-            "- Includes a **search function** to easily find specific courses using keywords.",
-            "- Packaged as a **standalone .exe**, requiring no Python installation or external dependencies.",
-            "- Provides a user-friendly graphical interface for seamless navigation and course exploration."
+            "• A standalone Windows executable application designed to discover and provide download links for Udemy's free courses from 'answersq.com'.",
+            "• Offers **course scraping** functionality to fetch the latest free course details.",
+            "• Includes a **search function** to easily find specific courses using keywords.",
+            "• Packaged as a **standalone .exe**, requiring no Python installation or external dependencies.",
+            "• Provides a user-friendly graphical interface for seamless navigation and course exploration."
         ],
         "image": "projects/udemy.png",
         "githubUrl": "https://github.com/N00BSC00B/Udemy-Free-Course-Grabber",
@@ -123,12 +123,12 @@
             "Automation"
         ],
         "description": [
-            "- A personal assistant application built with Python and PyQt6, offering various functionalities through voice commands and a graphical user interface.",
-            "- Features include **voice command recognition**, **screen recording**, **taking screenshots**, and controlling system settings.",
-            "- Can **open applications and websites**, provide **weather updates**, **jokes**, **Google search results**, and **news headlines**.",
-            "- Supports **volume and brightness control**, as well as locking/sleeping the computer.",
-            "- Highly **customizable settings** for AI name, hotkeys, and more.",
-            "- Provides a streamlined way to interact with your computer using natural language."
+            "• A personal assistant application built with Python and PyQt6, offering various functionalities through voice commands and a graphical user interface.",
+            "• Features include **voice command recognition**, **screen recording**, **taking screenshots**, and controlling system settings.",
+            "• Can **open applications and websites**, provide **weather updates**, **jokes**, **Google search results**, and **news headlines**.",
+            "• Supports **volume and brightness control**, as well as locking/sleeping the computer.",
+            "• Highly **customizable settings** for AI name, hotkeys, and more.",
+            "• Provides a streamlined way to interact with your computer using natural language."
         ],
         "image": "projects/assistant.png",
         "githubUrl": "https://github.com/assistantdost/Personal-Assistant",
@@ -144,10 +144,10 @@
             "Standalone Application"
         ],
         "description": [
-            "- A standalone Windows application for playing the classic Tic Tac Toe game.",
-            "- Features a user-friendly graphical interface built with **CustomTkinter**.",
-            "- Supports both **local multiplayer** and **single-player against a computer AI**.",
-            "- Provides a simple, engaging way to play Noughts and Crosses on your desktop."
+            "• A standalone Windows application for playing the classic Tic Tac Toe game.",
+            "• Features a user-friendly graphical interface built with **CustomTkinter**.",
+            "• Supports both **local multiplayer** and **single-player against a computer AI**.",
+            "• Provides a simple, engaging way to play Noughts and Crosses on your desktop."
         ],
         "image": "projects/play.png",
         "githubUrl": "https://github.com/N00BSC00B/tic-tac-toe",
@@ -163,11 +163,11 @@
             "Personal Assistant"
         ],
         "description": [
-            "- A Flask-based web application designed to interact with 'DOST', a Personal Assistant for Windows.",
-            "- Facilitates **user registration and login** for managing personal assistant settings.",
-            "- Provides access to the **privacy policy and terms and conditions**.",
-            "- Enables **downloading the personal assistant application** and staying updated with **changelogs**.",
-            "- Offers **password recovery** functionality and allows users to view **status updates** related to the assistant."
+            "• A Flask-based web application designed to interact with 'DOST', a Personal Assistant for Windows.",
+            "• Facilitates **user registration and login** for managing personal assistant settings.",
+            "• Provides access to the **privacy policy and terms and conditions**.",
+            "• Enables **downloading the personal assistant application** and staying updated with **changelogs**.",
+            "• Offers **password recovery** functionality and allows users to view **status updates** related to the assistant."
         ],
         "image": "projects/dost.jpg",
         "githubUrl": "https://github.com/assistantdost/Web",

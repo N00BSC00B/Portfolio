@@ -37,57 +37,69 @@ export const AboutSection = () => {
                 href={`./resume.pdf`}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
-                Download Resume
+                Resume
               </a>
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border py-6 pl-3 pr-1 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Full-Stack Development
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Creating scalable apps with FastAPI, Flask, MongoDB, and
-                    modern front-end frameworks.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border py-6 pl-3 p4-1 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    UI/UX & Real-Time Features
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Designing smooth user interfaces and integrating real-time
-                    functionality with WebSockets and PyQt.
-                  </p>
+            {/* Full-Stack Development Card */}
+            <div className="gradient-border p-[1px] rounded-xl card-hover">
+              <div className="bg-primary/20 rounded-xl p-5">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Code className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">
+                      Full-Stack Development
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Creating scalable apps with FastAPI, Flask, MongoDB, and
+                      modern front-end frameworks.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="gradient-border py-6 pl-3 pr-1 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
 
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Experience</h4>
-                  <p className="text-muted-foreground">
-                    From Discord bots and automation tools to Blender
-                    integrations and LED systems, I love building creative
-                    solutions.
-                  </p>
+            {/* UI/UX & Real-Time Features Card */}
+            <div className="gradient-border p-[1px] rounded-xl card-hover">
+              <div className="bg-primary/20 rounded-xl p-5">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <User className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">
+                      UI/UX & Real-Time Features
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Designing smooth user interfaces and integrating real-time
+                      functionality with WebSockets and PyQt.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Project Experience Card */}
+            <div className="gradient-border p-[1px] rounded-xl card-hover">
+              <div className="bg-primary/20 rounded-xl p-5">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Briefcase className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">
+                      Project Experience
+                    </h4>
+                    <p className="text-muted-foreground">
+                      From Discord bots and automation tools to Blender
+                      integrations and LED systems, I love building creative
+                      solutions.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

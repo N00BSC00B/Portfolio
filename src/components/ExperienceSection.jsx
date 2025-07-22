@@ -85,7 +85,7 @@ export const ExperienceSection = () => {
                     key={roleIdx}
                     className="relative pl-6 border-l-2 border-primary mb-6"
                   >
-                    <div className="absolute -left-1.5 top-2 w-3 h-3 bg-primary rounded-full" />
+                    <div className="absolute -left-1.5 top-2 w-3 h-3 bg-primary square" />
                     <h4 className="text-md font-medium mt-1 text-left">
                       {role.title}
                     </h4>
