@@ -12,12 +12,16 @@ import { ExperienceSection } from "../components/ExperienceSection";
 import { FloatingActionMenu } from "../components/FloatingActionMenu";
 import { ModernLoader } from "../components/ModernLoader";
 import { CursorTrail } from "../components/CursorTrail";
+import { themeManager } from "../utils/themeManager";
 
 export const Home = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Initialize theme manager for dynamic manifest colors
+    themeManager.init();
+
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);

@@ -162,7 +162,7 @@
 
     --card: 0 0% 100%;
 
-    /* --primary: 250 47% 60%;
+    /* --primary: ;
     --primary-foreground: 210 40% 98%; */
 
     /* Cyan */
@@ -290,4 +290,111 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+}
+
+/* Mobile viewport adjustments */
+@supports (-webkit-touch-callout: none) {
+  .hero-section {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Better spacing for mobile devices */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve floating action menu on mobile */
+@media (max-width: 640px) {
+  .floating-menu {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .floating-menu button {
+    transform: scale(0.9);
+  }
+}
+
+/* Fix cursor trail on touch devices */
+@media (pointer: coarse) {
+  .cursor-trail {
+    display: none;
+  }
+}
+
+/* Better safe area handling for mobile browsers */
+@supports (padding: max(0px)) {
+  .hero-section {
+    min-height: max(100vh, -webkit-fill-available);
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Ensure hero section doesn't get cut by navbar */
+.hero-section {
+  scroll-margin-top: 5rem;
+}
+
+/* Performance optimizations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cursor-trail {
+    display: none !important;
+  }
+}
+
+/* Mobile-specific performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce blur effects on mobile for better performance */
+  .backdrop-blur-lg {
+    backdrop-filter: blur(6px) !important;
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px) !important;
+  }
+
+  /* Disable complex hover effects on touch devices */
+  .group:hover .group-hover\:scale-105 {
+    transform: none !important;
+  }
+
+  /* Enable hardware acceleration for better mobile performance */
+  .cursor-trail,
+  .floating-action-menu,
+  .modern-background,
+  [data-framer-motion] {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* General performance optimizations */
+img {
+  image-rendering: optimizeQuality;
 }

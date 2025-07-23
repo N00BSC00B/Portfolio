@@ -1,4 +1,11 @@
-import { ArrowUp, Github, Linkedin, Mail, Heart } from "lucide-react";
+import {
+  ArrowUp,
+  Github,
+  Linkedin,
+  Instagram,
+  Mail,
+  Heart,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { GlassmorphismCard } from "./GlassmorphismCard";
 
@@ -18,6 +25,11 @@ export const Footer = () => {
       icon: Mail,
       href: "mailto:sayanbarma2005@gmail.com",
       label: "Email",
+    },
+    {
+      icon: Instagram,
+      href: "https://instagram.com/barma_sayan",
+      label: "Instagram",
     },
   ];
 

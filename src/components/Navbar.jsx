@@ -1,6 +1,6 @@
 import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,13 +19,21 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const ticking = useRef(false);
 
+  // Optimized scroll handler with requestAnimationFrame
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (!ticking.current) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10);
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -41,7 +49,7 @@ export const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed w-full z-40 transition-all duration-500"
+      className="navbar fixed w-full z-40 transition-all duration-500"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -60,7 +68,7 @@ export const Navbar = () => {
       <div
         className={cn(
           "relative z-10 transition-all duration-500",
-          isScrolled ? "py-3" : "py-5"
+          isScrolled ? "py-3" : "py-4"
         )}
       >
         {/* Gradient Border */}
@@ -68,9 +76,9 @@ export const Navbar = () => {
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         )}
 
-        <div className="container flex items-center justify-between">
+        <div className="container flex items-center justify-between h-12 px-4 sm:px-6">
           <motion.button
-            className="text-xl font-bold text-primary flex items-center relative group"
+            className="text-lg sm:text-xl font-bold text-primary flex items-center relative group flex-shrink-0"
             onClick={() => handleNavClick("hero")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -117,6 +125,7 @@ export const Navbar = () => {
             {isMenuOpen && (
               <motion.div
                 className="fixed inset-0 bg-background/95 dark:bg-background/90 backdrop-blur-xl z-30 flex flex-col items-center justify-center md:hidden"
+                style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
                 initial={{ opacity: 0, y: "-100%" }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: "-100%" }}
@@ -125,12 +134,12 @@ export const Navbar = () => {
                 {/* Background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-600/5" />
 
-                <div className="relative z-10 flex flex-col space-y-8 text-xl">
+                <div className="relative z-10 flex flex-col space-y-6 sm:space-y-8 text-lg sm:text-xl">
                   {navItems.map((item, key) => (
                     <motion.button
                       key={key}
                       onClick={() => handleNavClick(item.id)}
-                      className="text-foreground hover:text-primary transition-all duration-300 py-3 px-6 rounded-lg hover:bg-primary/10"
+                      className="text-foreground hover:text-primary transition-all duration-300 py-3 px-6 rounded-lg hover:bg-primary/10 min-h-[44px] min-w-[44px]"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: key * 0.1, duration: 0.3 }}

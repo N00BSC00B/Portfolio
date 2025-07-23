@@ -2,46 +2,137 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Sayan Barma</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Sayan Barma | Portfolio</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./favicon.jpg" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-
-    <!-- Apple iOS Icon -->
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-
-    <!-- Android Chrome Web App Manifest -->
-    <link rel="manifest" href="./manifest.json" />
-
-    <!-- Theme color for address bar -->
-    <meta name="theme-color" content="#00FFFF" />
-
-    <!-- Metadata -->
-    <meta name="title" content="Portfolio | Sayan Barma" />
+    <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Showcasing the projects and skills of Sayan Barma"
+      content="Sayan Barma | Full-Stack Developer specializing in React, Node.js, Python, and AI/ML. Explore my portfolio showcasing innovative web applications, automation tools, and cross-platform solutions."
+    />
+    <meta
+      name="keywords"
+      content="Sayan Barma, Full-Stack Developer, React, Node.js, Python, AI, ML, Web Development, Portfolio, JavaScript, TypeScript, MongoDB, Express, API Development"
     />
     <meta name="author" content="Sayan Barma" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
 
-    <!-- Social Meta -->
-    <meta property="og:title" content="Portfolio | Sayan Barma" />
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/jpeg" href="./favicon.jpg" sizes="any" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      href="./apple-touch-icon.png"
+      sizes="180x180"
+    />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Theme Colors (will be updated dynamically) -->
+    <meta
+      name="theme-color"
+      content="#0A0E1A"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#F8FAFC"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta name="msapplication-TileColor" content="#8B5CF6" />
+    <meta name="msapplication-navbutton-color" content="#0A0E1A" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sayan-barma-portfolio.netlify.app/"
+    />
+    <meta property="og:title" content="Sayan Barma | Portfolio" />
     <meta
       property="og:description"
-      content="Showcasing the projects and skills of Sayan Barma"
+      content="Full-Stack Developer specializing in React, Node.js, Python, and AI/ML. Explore innovative web applications, automation tools, and cross-platform solutions."
     />
     <meta property="og:image" content="./social-preview.jpg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="Sayan Barma Portfolio" />
+    <meta property="og:locale" content="en_US" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Portfolio | Sayan Barma" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
     <meta
-      name="twitter:description"
-      content="Showcasing the projects and skills of Sayan Barma"
+      property="twitter:url"
+      content="https://sayan-barma-portfolio.netlify.app/"
     />
-    <meta name="twitter:image" content="./social-preview.jpg" />
+    <meta property="twitter:title" content="Sayan Barma | Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Full-Stack Developer specializing in React, Node.js, Python, and AI/ML. Explore innovative web applications and automation tools."
+    />
+    <meta property="twitter:image" content="./social-preview.jpg" />
+    <meta property="twitter:creator" content="@sayan_barma" />
+
+    <!-- LinkedIn -->
+    <meta property="article:author" content="Sayan Barma" />
+    <meta property="profile:first_name" content="Sayan" />
+    <meta property="profile:last_name" content="Barma" />
+
+    <!-- Performance and Security -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sayan Barma",
+        "jobTitle": "Full-Stack Developer",
+        "description": "Full-Stack Developer specializing in React, Node.js, Python, and AI/ML",
+        "url": "https://sayan-barma-portfolio.netlify.app/",
+        "sameAs": [
+          "https://github.com/N00BSCOOB",
+          "http://linkedin.com/in/sayan-barma-ab0973289/",
+          "https://www.instagram.com/barma_sayan/"
+        ],
+        "image": "./social-preview.jpg",
+        "knowsAbout": [
+          "React",
+          "Node.js",
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "AI",
+          "Machine Learning",
+          "Web Development",
+          "API Development"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
