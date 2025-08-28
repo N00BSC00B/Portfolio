@@ -111,30 +111,33 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-12 md:py-16 pb-8 md:pb-12 px-4 relative overflow-hidden"
+    >
       {/* Background Effects */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-r from-primary to-purple-600 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-20 md:opacity-30">
+        <div className="absolute top-1/3 left-1/3 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-r from-primary to-orange-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/3 w-48 md:w-64 h-48 md:h-64 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <ScrollReveal>
-          <motion.div className="text-center mb-16">
+          <motion.div className="text-left mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Get In{" "}
-              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
                 Touch
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl px-4">
               Have a project in mind or want to collaborate? Feel free to reach
               out. I&#39;m always open to discussing new opportunities.
             </p>
           </motion.div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <ScrollReveal delay={0.2}>
             <div className="space-y-8">
@@ -168,7 +171,7 @@ export const ContactSection = () => {
                     title: "Location",
                     value: "Durgapur, West Bengal, India",
                     // href: "#",
-                    gradient: "from-purple-500/20 to-pink-500/20",
+                    gradient: "from-orange-500/20 to-red-500/20",
                   },
                 ].map((contact, index) => (
                   <motion.div
@@ -178,7 +181,7 @@ export const ContactSection = () => {
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                   >
                     <GlassmorphismCard
-                      className={`p-6 bg-gradient-to-br ${contact.gradient} hover:scale-105 transition-transform duration-300`}
+                      className={`pl-3 py-4 bg-gradient-to-br ${contact.gradient} hover:scale-105 transition-transform duration-300`}
                     >
                       <div className="flex items-center space-x-4">
                         <motion.div
@@ -209,9 +212,9 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
           <ScrollReveal delay={0.3}>
-            <GlassmorphismCard className="p-8">
+            <GlassmorphismCard className="p-6 md:p-8">
               <motion.h3
-                className="text-2xl font-semibold mb-8"
+                className="text-xl md:text-2xl font-semibold mb-6 md:mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -219,7 +222,7 @@ export const ContactSection = () => {
                 Send a Message
               </motion.h3>
 
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 {[
                   {
                     name: "name",
@@ -253,7 +256,7 @@ export const ContactSection = () => {
                       required
                       value={formData[field.name]}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                      className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                       placeholder={field.placeholder}
                     />
                   </motion.div>
@@ -277,7 +280,7 @@ export const ContactSection = () => {
                     rows="5"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 resize-none"
+                    className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 resize-none"
                     placeholder="Hello, I'd like to talk about..."
                   />
                 </motion.div>
@@ -286,7 +289,7 @@ export const ContactSection = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={cn(
-                    "group relative w-full flex items-center justify-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25",
+                    "group relative w-full flex items-center justify-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/25",
                     isSubmitting && "opacity-70 cursor-not-allowed"
                   )}
                   whileHover={{
@@ -300,7 +303,7 @@ export const ContactSection = () => {
                 >
                   {/* Background Animation */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: isSubmitting ? "-100%" : 0 }}
                     transition={{ duration: 0.3 }}

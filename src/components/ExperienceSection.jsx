@@ -62,14 +62,14 @@ export const ExperienceSection = () => {
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <ScrollReveal>
-          <motion.div className="text-center mb-16">
+          <motion.div className="text-left mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Professional{" "}
-              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl">
               My journey through different roles and organizations, contributing
               to impactful projects and growing professionally
             </p>
@@ -84,11 +84,11 @@ export const ExperienceSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: key * 0.1, duration: 0.5 }}
               >
-                <GlassmorphismCard className="p-6 hover:shadow-xl transition-all duration-300 border border-white/10">
+                <GlassmorphismCard className="p-4 md:p-6 hover:shadow-xl transition-all duration-300 border border-white/10">
                   <div className="flex flex-col md:flex-row md:items-start gap-4">
                     {/* Company Logo */}
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center border border-primary/30">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FF6B6B]/20 to-orange-500/20 flex items-center justify-center border border-[#FF6B6B]/30">
                         {exp.logoUrl ? (
                           <img
                             src={`./${exp.logoUrl}`}
@@ -144,7 +144,7 @@ export const ExperienceSection = () => {
                               transition={{ delay: key * 0.1 + roleIdx * 0.05 }}
                             >
                               {/* Role Timeline Dot - aligned with date */}
-                              <div className="absolute -left-1.5 top-8 w-3 h-3 bg-gradient-to-r from-primary to-purple-600 rounded-full shadow-lg" />
+                              <div className="absolute -left-1.5 top-8 w-3 h-3 bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full shadow-lg" />
 
                               <div className="bg-white/5 dark:bg-white/5 rounded-lg p-4 border border-white/10">
                                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">

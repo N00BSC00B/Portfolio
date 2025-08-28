@@ -95,7 +95,7 @@ export const ProjectsSection = () => {
         (p) => p.id === activeProject.id
       );
       const nextIndex = (currentIndex + 1) % filteredProjects.length;
-      
+
       // Smooth transition delay
       setTimeout(() => {
         setActiveProject(filteredProjects[nextIndex]);
@@ -112,7 +112,7 @@ export const ProjectsSection = () => {
       );
       const prevIndex =
         (currentIndex - 1 + filteredProjects.length) % filteredProjects.length;
-      
+
       // Smooth transition delay
       setTimeout(() => {
         setActiveProject(filteredProjects[prevIndex]);
@@ -127,7 +127,7 @@ export const ProjectsSection = () => {
     setTouchEnd(null);
     setTouchStart({
       x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY
+      y: e.targetTouches[0].clientY,
     });
     setIsSwiping(false);
     setSwipeDirection(null);
@@ -137,25 +137,25 @@ export const ProjectsSection = () => {
     if (isAnimating) return;
     const current = {
       x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY
+      y: e.targetTouches[0].clientY,
     };
     setTouchEnd(current);
-    
+
     if (touchStart) {
       const deltaX = touchStart.x - current.x;
       const deltaY = Math.abs(touchStart.y - current.y);
-      
+
       // Only start swiping if horizontal movement is greater than vertical
       if (Math.abs(deltaX) > deltaY && Math.abs(deltaX) > 10) {
         setIsSwiping(true);
-        setSwipeDirection(deltaX > 0 ? 'left' : 'right');
+        setSwipeDirection(deltaX > 0 ? "left" : "right");
       }
     }
   };
 
   const onTouchEnd = () => {
     if (isAnimating || !touchStart || !touchEnd) return;
-    
+
     const distance = touchStart.x - touchEnd.x;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -174,7 +174,7 @@ export const ProjectsSection = () => {
         }, 150);
       }
     }
-    
+
     setIsSwiping(false);
     setSwipeDirection(null);
   };
@@ -202,7 +202,7 @@ export const ProjectsSection = () => {
             transition={{ duration: 0.6 }}
           >
             Featured{" "}
-            <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
               {" "}
               Projects{" "}
             </span>
@@ -215,7 +215,7 @@ export const ProjectsSection = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <GlassmorphismCard className="p-6 mb-8">
+          <GlassmorphismCard className="p-4 md:p-6 mb-6 md:mb-8">
             {/* Tag filter buttons - improved system */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -235,8 +235,8 @@ export const ProjectsSection = () => {
                   }}
                   className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 whitespace-nowrap transform hover:scale-105 ${
                     selectedTags.length === 0
-                      ? "bg-gradient-to-r from-primary to-purple-600 text-white border-transparent shadow-lg"
-                      : "bg-background/50 backdrop-blur-sm text-foreground hover:bg-primary/10 border-white/20"
+                      ? "bg-gradient-to-r from-[#FF6B6B] to-orange-500 text-white border-transparent shadow-lg"
+                      : "bg-background/50 backdrop-blur-sm text-foreground hover:bg-[#FF6B6B]/10 border-white/20"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -251,8 +251,8 @@ export const ProjectsSection = () => {
                       onClick={() => toggleTag(tag)}
                       className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 whitespace-nowrap ${
                         selectedTags.includes(tag)
-                          ? "bg-gradient-to-r from-primary to-purple-600 text-white border-transparent shadow-lg"
-                          : "bg-background/50 backdrop-blur-sm text-foreground hover:bg-primary/10 border-white/20"
+                          ? "bg-gradient-to-r from-[#FF6B6B] to-orange-500 text-white border-transparent shadow-lg"
+                          : "bg-background/50 backdrop-blur-sm text-foreground hover:bg-[#FF6B6B]/10 border-white/20"
                       }`}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -316,7 +316,7 @@ export const ProjectsSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8"
           >
             {currentProjects.map((project, key) => {
               const fullDescriptionText = project.description.join("\n");
@@ -358,12 +358,12 @@ export const ProjectsSection = () => {
                         </motion.div>
                       </div>
 
-                      <div className="p-6 flex-1 flex flex-col">
+                      <div className="p-4 md:p-6 flex-1 flex flex-col">
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags?.slice(0, 3).map((tag, idx) => (
                             <motion.span
                               key={tag + idx}
-                              className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-primary/20 to-purple-600/20 text-primary border border-primary/30"
+                              className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-[#FF6B6B]/20 to-orange-500/20 text-[#FF6B6B] border border-[#FF6B6B]/30"
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ delay: idx * 0.05 }}
@@ -437,8 +437,8 @@ export const ProjectsSection = () => {
                     onClick={() => setCurrentPage(i)}
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                       currentPage === i
-                        ? "bg-gradient-to-r from-primary to-purple-600 text-white"
-                        : "bg-white/10 dark:bg-white/5 text-foreground hover:bg-primary/20"
+                        ? "bg-gradient-to-r from-[#FF6B6B] to-orange-500 text-white"
+                        : "bg-white/10 dark:bg-white/5 text-foreground hover:bg-[#FF6B6B]/20"
                     }`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -468,7 +468,7 @@ export const ProjectsSection = () => {
         <ScrollReveal delay={0.4}>
           <div className="text-left mt-12">
             <motion.a
-              className="group relative inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/25"
               target="_blank"
               href="https://github.com/N00BSC00B"
               rel="noopener noreferrer"
@@ -487,7 +487,7 @@ export const ProjectsSection = () => {
 
               {/* Animated Background */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
@@ -502,39 +502,55 @@ export const ProjectsSection = () => {
 
       {/* Project modal */}
       {activeProject && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center px-2 sm:px-4"
           onClick={() => setActiveProject(null)} // Click outside to close
         >
-          <motion.div 
+          <motion.div
             key={activeProject.id} // Key ensures animation triggers on project change
             className="bg-white dark:bg-zinc-900 rounded-lg max-w-2xl w-full mx-2 sm:mx-4 p-4 sm:p-6 relative shadow-lg max-h-[90vh] overflow-y-auto text-left custom-scrollbar"
             onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
-            initial={{ 
-              opacity: 0, 
+            initial={{
+              opacity: 0,
               scale: 0.95,
-              x: swipeDirection === 'left' ? -50 : swipeDirection === 'right' ? 50 : 0
+              x:
+                swipeDirection === "left"
+                  ? -50
+                  : swipeDirection === "right"
+                  ? 50
+                  : 0,
             }}
-            animate={{ 
-              opacity: 1, 
+            animate={{
+              opacity: 1,
               scale: 1,
-              x: isSwiping ? (swipeDirection === 'left' ? -20 : swipeDirection === 'right' ? 20 : 0) : 0
+              x: isSwiping
+                ? swipeDirection === "left"
+                  ? -20
+                  : swipeDirection === "right"
+                  ? 20
+                  : 0
+                : 0,
             }}
-            exit={{ 
-              opacity: 0, 
+            exit={{
+              opacity: 0,
               scale: 0.95,
-              x: swipeDirection === 'left' ? 50 : swipeDirection === 'right' ? -50 : 0
+              x:
+                swipeDirection === "left"
+                  ? 50
+                  : swipeDirection === "right"
+                  ? -50
+                  : 0,
             }}
-            transition={{ 
+            transition={{
               duration: isAnimating ? 0.2 : 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94] // Custom ease for smooth feel
+              ease: [0.25, 0.46, 0.45, 0.94], // Custom ease for smooth feel
             }}
             style={{
-              filter: isAnimating ? 'blur(1px)' : 'blur(0px)',
-              transition: 'filter 0.15s ease-out'
+              filter: isAnimating ? "blur(1px)" : "blur(0px)",
+              transition: "filter 0.15s ease-out",
             }}
           >
             <button
@@ -587,23 +603,41 @@ export const ProjectsSection = () => {
               alt={activeProject.title}
               className="w-full object-cover rounded-md mb-4"
               animate={{
-                x: isSwiping ? (swipeDirection === 'left' ? -10 : swipeDirection === 'right' ? 10 : 0) : 0
+                x: isSwiping
+                  ? swipeDirection === "left"
+                    ? -10
+                    : swipeDirection === "right"
+                    ? 10
+                    : 0
+                  : 0,
               }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             />
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-bold mb-2"
               animate={{
-                x: isSwiping ? (swipeDirection === 'left' ? -5 : swipeDirection === 'right' ? 5 : 0) : 0
+                x: isSwiping
+                  ? swipeDirection === "left"
+                    ? -5
+                    : swipeDirection === "right"
+                    ? 5
+                    : 0
+                  : 0,
               }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
               {activeProject.title}
             </motion.h3>
-            <motion.div 
+            <motion.div
               className="flex flex-wrap gap-2 mb-4"
               animate={{
-                x: isSwiping ? (swipeDirection === 'left' ? -3 : swipeDirection === 'right' ? 3 : 0) : 0
+                x: isSwiping
+                  ? swipeDirection === "left"
+                    ? -3
+                    : swipeDirection === "right"
+                    ? 3
+                    : 0
+                  : 0,
               }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
@@ -616,10 +650,16 @@ export const ProjectsSection = () => {
                 </span>
               ))}
             </motion.div>
-            <motion.div 
+            <motion.div
               className="space-y-2 text-muted-foreground text-sm mb-4"
               animate={{
-                x: isSwiping ? (swipeDirection === 'left' ? -3 : swipeDirection === 'right' ? 3 : 0) : 0
+                x: isSwiping
+                  ? swipeDirection === "left"
+                    ? -3
+                    : swipeDirection === "right"
+                    ? 3
+                    : 0
+                  : 0,
               }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
@@ -627,10 +667,16 @@ export const ProjectsSection = () => {
                 {activeProject.description.map((d) => `- ${d}`).join("\n")}
               </ReactMarkdown>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex space-x-3"
               animate={{
-                x: isSwiping ? (swipeDirection === 'left' ? -3 : swipeDirection === 'right' ? 3 : 0) : 0
+                x: isSwiping
+                  ? swipeDirection === "left"
+                    ? -3
+                    : swipeDirection === "right"
+                    ? 3
+                    : 0
+                  : 0,
               }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >

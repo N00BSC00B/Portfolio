@@ -9,8 +9,8 @@ const navItems = [
   { name: "Home", id: "hero" },
   { name: "About", id: "about" },
   { name: "Skills", id: "skills" },
-  { name: "Experience", id: "experience" },
   { name: "Projects", id: "projects" },
+  { name: "Experience", id: "experience" },
   { name: "Contact", id: "contact" },
 ];
 
@@ -84,11 +84,11 @@ export const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <div className="relative">
-              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
                 Sayan Barma
               </span>
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
             </div>
           </motion.button>
 
@@ -132,7 +132,7 @@ export const Navbar = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-600/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-orange-500/5" />
 
                 <div className="relative z-10 flex flex-col space-y-6 sm:space-y-8 text-lg sm:text-xl">
                   {navItems.map((item, key) => (

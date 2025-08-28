@@ -165,7 +165,7 @@ export const ModernBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {/* Gradient Mesh Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-purple-50/10 to-cyan-50/20 dark:from-blue-950/20 dark:via-purple-950/10 dark:to-cyan-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-orange-50/10 to-red-50/20 dark:from-blue-950/20 dark:via-orange-950/10 dark:to-red-950/20" />
 
       {/* Interactive Mouse Glow - Only on high performance devices */}
       {capabilities.canUseComplexAnimations && (
@@ -185,7 +185,7 @@ export const ModernBackground = () => {
       {floatingElements.map((element) => (
         <div
           key={element.id}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 backdrop-blur-sm bg-float-element"
+          className="absolute rounded-full bg-gradient-to-r from-blue-400/15 to-orange-400/15 backdrop-blur-sm bg-float-element"
           style={{
             width: element.size + "px",
             height: element.size + "px",

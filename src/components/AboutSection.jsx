@@ -16,7 +16,7 @@ export const AboutSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-5xl relative z-10">
@@ -28,7 +28,7 @@ export const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             About{" "}
-            <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
               Me
             </span>
           </motion.h2>
@@ -78,7 +78,10 @@ export const AboutSection = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 {stats.map((stat, index) => (
-                  <GlassmorphismCard key={index} className="p-4 text-center">
+                  <GlassmorphismCard
+                    key={index}
+                    className="p-3 md:p-4 text-center"
+                  >
                     <motion.div
                       initial={{ scale: 0.5 }}
                       whileInView={{ scale: 1 }}
@@ -103,13 +106,13 @@ export const AboutSection = () => {
               >
                 <motion.a
                   href="#contact"
-                  className="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/25"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative z-10">Get In Touch</span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: 0 }}
                     transition={{ duration: 0.3 }}
@@ -143,7 +146,7 @@ export const AboutSection = () => {
                   title: "UI/UX & Real-Time Features",
                   description:
                     "Designing smooth user interfaces and integrating real-time functionality with WebSockets and PyQt.",
-                  gradient: "from-purple-500/20 to-pink-500/20",
+                  gradient: "from-green-500/20 to-emerald-500/20",
                 },
                 {
                   icon: Briefcase,
@@ -160,7 +163,7 @@ export const AboutSection = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <GlassmorphismCard
-                    className={`p-6 bg-gradient-to-br ${card.gradient} hover:scale-105 transition-transform duration-300`}
+                    className={`p-4 md:p-6 bg-gradient-to-br ${card.gradient} hover:scale-105 transition-transform duration-300`}
                   >
                     <div className="flex items-start gap-4">
                       <motion.div

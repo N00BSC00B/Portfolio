@@ -128,7 +128,7 @@ export const OptimizedHeroSection = () => {
                 />
 
                 {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 rounded-full bg-[#FF6B6B]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </LightScrollReveal>
 
@@ -146,7 +146,7 @@ export const OptimizedHeroSection = () => {
                   </div>
                   <div>
                     <span className="text-primary inline-block">Sayan</span>
-                    <span className="text-gradient inline-block ml-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <span className="text-gradient inline-block ml-2 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                       Barma
                     </span>
                   </div>
@@ -186,12 +186,12 @@ export const OptimizedHeroSection = () => {
                 <a
                   ref={ctaButtonRef}
                   href="#projects"
-                  className="group relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
+                  className="group relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/25"
                 >
                   <span className="relative z-10">View My Work</span>
 
                   {/* CSS-based Animated Background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
 
                   {/* Shimmer Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />

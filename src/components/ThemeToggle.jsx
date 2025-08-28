@@ -8,34 +8,37 @@ export const ThemeToggle = ({ className }) => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
+    const htmlElement = document.documentElement;
 
     if (storedTheme === "light") {
       setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
+      htmlElement.setAttribute("data-theme", "light");
     } else if (storedTheme === "dark") {
       setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
+      htmlElement.setAttribute("data-theme", "dark");
     } else {
       // If no theme is stored, check system preference
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         setIsDarkMode(true);
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark"); // Save system preference as default
+        htmlElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
       } else {
         setIsDarkMode(false);
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light"); // Save light as default if system prefers light
+        htmlElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
       }
     }
   }, []);
 
   const toggleTheme = () => {
+    const htmlElement = document.documentElement;
+
     if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
+      htmlElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
     } else {
-      document.documentElement.classList.add("dark");
+      htmlElement.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
       setIsDarkMode(true);
     }
@@ -44,18 +47,17 @@ export const ThemeToggle = ({ className }) => {
   return (
     <button
       onClick={toggleTheme}
-      // The className prop allows parent components (like Navbar) to add styles
       className={cn(
         "p-2 rounded-full transition-colors duration-300",
-        "focus:outline-none", // Common class to remove default focus outline
-        className // Applies additional classes passed from parent
+        "focus:outline-none hover:bg-black/10 dark:hover:bg-white/10",
+        className
       )}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" /> // Yellow for Sun in dark mode
+        <Sun className="h-6 w-6 text-amber-400" />
       ) : (
-        <Moon className="h-6 w-6 text-blue-900" /> // Dark blue for Moon in light mode
+        <Moon className="h-6 w-6 text-slate-600" />
       )}
     </button>
   );

@@ -96,7 +96,7 @@ export const FloatingActionMenu = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-primary to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+            className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >

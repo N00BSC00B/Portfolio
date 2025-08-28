@@ -57,7 +57,7 @@ export const HeroSection = () => {
                 />
 
                 {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+                <div className="absolute inset-0 rounded-full bg-[#FF6B6B]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
               </div>
             </motion.div>
 
@@ -87,7 +87,7 @@ export const HeroSection = () => {
                   Sayan
                 </motion.span>
                 <motion.span
-                  className="text-gradient inline-block ml-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                  className="text-gradient inline-block ml-2 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
@@ -134,7 +134,7 @@ export const HeroSection = () => {
               >
                 <motion.a
                   href="#projects"
-                  className="group relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
+                  className="group relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#FF6B6B] to-orange-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/25"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -142,7 +142,7 @@ export const HeroSection = () => {
 
                   {/* Animated Background */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: 0 }}
                     transition={{ duration: 0.3 }}

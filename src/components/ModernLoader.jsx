@@ -61,7 +61,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
                 rotate: [0, 180, 360],
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-full blur-3xl"
+              className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/30 to-orange-500/30 rounded-full blur-3xl"
             />
             <motion.div
               animate={{
@@ -70,7 +70,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
                 rotate: [360, 180, 0],
               }}
               transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl"
+              className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-full blur-3xl"
             />
 
             {/* Grid Pattern */}
@@ -140,7 +140,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent"
+                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-orange-500 to-red-500 bg-clip-text text-transparent"
               >
                 Sayan Barma
               </motion.h1>
@@ -166,7 +166,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
               {/* Progress Bar */}
               <div className="relative w-80 h-3 bg-muted/50 rounded-full overflow-hidden backdrop-blur-sm border border-border/50">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-full relative"
+                  className="h-full bg-gradient-to-r from-primary via-orange-500 to-red-500 rounded-full relative"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: "easeOut", duration: 0.3 }}
                 >
@@ -223,7 +223,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
                     i % 3 === 0
                       ? "bg-primary/60"
                       : i % 3 === 1
-                      ? "bg-purple-500/60"
+                      ? "bg-orange-500/60"
                       : "bg-pink-500/60"
                   }
                 `}
@@ -250,7 +250,7 @@ export const ModernLoader = ({ isLoading, onLoadingComplete }) => {
                     repeat: Infinity,
                     delay: i * 0.3,
                   }}
-                  className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-purple-600"
+                  className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-orange-500"
                 />
               ))}
             </motion.div>

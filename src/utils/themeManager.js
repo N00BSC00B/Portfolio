@@ -2,13 +2,15 @@
 export class ThemeManager {
   constructor() {
     this.lightColors = {
-      background: "#F8FAFC", // Light mode background (210 40% 98%)
-      surface: "#FFFFFF", // Light mode card color
+      background: "#F8F9FA", // Light mode background - Very light grey/off-white
+      surface: "#E9ECEF", // Light mode card color - Subtle light grey
+      accent: "#FF6B6B", // Warm coral/orange-red accent
     };
 
     this.darkColors = {
-      background: "#0A0E1A", // Dark mode background (222 47% 4%)
-      surface: "#141B2D", // Dark mode card color (222 47% 8%)
+      background: "#282C34", // Dark mode background - Deep charcoal grey
+      surface: "#3B3F46", // Dark mode card color - Slightly lighter charcoal
+      accent: "#FF6B6B", // Same warm coral/orange-red accent
     };
   }
 

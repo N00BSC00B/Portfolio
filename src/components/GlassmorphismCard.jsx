@@ -71,7 +71,7 @@ export const GlassmorphismCard = ({
       </div>
 
       {/* Border Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 hover:opacity-100 transition-opacity duration-300 blur-sm" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-red-500/20 opacity-0 hover:opacity-100 transition-opacity duration-300 blur-sm" />
 
       <div className="relative z-10">{children}</div>
     </motion.div>

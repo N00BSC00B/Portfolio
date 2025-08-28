@@ -82,19 +82,19 @@ export const SkillsSection = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <ScrollReveal>
-          <motion.div className="text-center mb-16">
+          <motion.div className="text-left mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Technical{" "}
-              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FF6B6B] to-orange-500 bg-clip-text text-transparent">
                 Skills
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl">
               A comprehensive toolkit of technologies and frameworks I use to
               build modern applications
             </p>
@@ -111,7 +111,7 @@ export const SkillsSection = () => {
                 className={cn(
                   "relative flex items-center space-x-3 px-6 py-3 rounded-2xl transition-all duration-300 overflow-hidden",
                   active === key
-                    ? "bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-[#FF6B6B] to-orange-500 text-white shadow-lg"
                     : "bg-white/10 dark:bg-white/5 backdrop-blur-lg text-foreground hover:bg-white/20 dark:hover:bg-white/10 border border-white/20"
                 )}
                 initial={{ opacity: 0, y: 20 }}
@@ -168,7 +168,7 @@ export const SkillsSection = () => {
                 whileHover={{ y: -10, scale: 1.05 }}
                 className="group"
               >
-                <GlassmorphismCard className="p-4 md:p-6 text-center h-full flex flex-col items-center justify-center bg-gradient-to-br from-white/10 to-white/5 hover:from-primary/20 hover:to-purple-600/20 transition-all duration-300 min-h-[120px]">
+                <GlassmorphismCard className="p-4 md:p-6 text-center h-full flex flex-col items-center justify-center bg-gradient-to-br from-white/10 to-white/5 hover:from-[#FF6B6B]/20 hover:to-orange-500/20 transition-all duration-300 min-h-[120px]">
                   <motion.div
                     className="relative mb-3 flex items-center justify-center"
                     whileHover={{ rotate: [0, -10, 10, -10, 0] }}
@@ -196,7 +196,7 @@ export const SkillsSection = () => {
 
                   {/* Progress bar indicator */}
                   <motion.div
-                    className="w-full h-1 bg-gradient-to-r from-primary/30 to-purple-600/30 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-1 bg-gradient-to-r from-[#FF6B6B]/30 to-orange-500/30 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.4 }}
