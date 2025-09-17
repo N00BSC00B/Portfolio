@@ -1,3 +1,5 @@
+"use client";
+
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useToast } from "../hooks/use-toast";
@@ -25,7 +27,7 @@ export const ContactSection = () => {
 
     setIsSubmitting(true);
 
-    const discordWebhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+    const discordWebhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
 
     const payload = {
       embeds: [

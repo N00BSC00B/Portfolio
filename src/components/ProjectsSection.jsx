@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowRight, ExternalLink, Github, X, ArrowLeft } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ScrollReveal } from "./ScrollReveal";
 import { GlassmorphismCard } from "./GlassmorphismCard";
 
@@ -337,15 +340,21 @@ export const ProjectsSection = () => {
                   >
                     <GlassmorphismCard className="overflow-hidden h-full flex flex-col">
                       <div className="relative h-48 sm:h-52 lg:h-56 overflow-hidden">
-                        <motion.img
-                          src={`./${project.image}`}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
+                        <motion.div
                           whileHover={!isLowPerformance ? { scale: 1.05 } : {}}
                           transition={{
                             duration: isLowPerformance ? 0.3 : 0.5,
                           }}
-                        />
+                          className="w-full h-full"
+                        >
+                          <Image
+                            src={`/${project.image}`}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </motion.div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <motion.div
                           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -598,21 +607,15 @@ export const ProjectsSection = () => {
               </div>
             )}
 
-            <motion.img
-              src={`./${activeProject.image}`}
-              alt={activeProject.title}
-              className="w-full object-cover rounded-md mb-4"
-              animate={{
-                x: isSwiping
-                  ? swipeDirection === "left"
-                    ? -10
-                    : swipeDirection === "right"
-                    ? 10
-                    : 0
-                  : 0,
-              }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            />
+            <div className="relative w-full h-64 mb-4">
+              <Image
+                src={`/${activeProject.image}`}
+                alt={activeProject.title}
+                fill
+                className="object-cover rounded-md"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
             <motion.h3
               className="text-2xl font-bold mb-2"
               animate={{

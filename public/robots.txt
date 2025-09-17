@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sayan-barma-portfolio.netlify.app/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /*.json$
+Disallow: /favicon.ico
+Disallow: /manifest.json
+
+# Allow important files
+Allow: /resume.pdf
+Allow: /social-preview.jpg
+Allow: /favicon.jpg

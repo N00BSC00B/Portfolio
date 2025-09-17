@@ -16,12 +16,20 @@ export class ThemeManager {
 
   // Detect current theme
   getCurrentTheme() {
-    if (typeof window === "undefined") return "dark";
+    // Check if we're in a browser environment
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return "dark"; // Default for SSR
+    }
 
-    // Check if dark mode is explicitly set
-    const isDarkMode =
-      document.documentElement.classList.contains("dark") ||
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    // Check if dark mode is explicitly set (check both class and data-theme)
+    const hasClassDark = document.documentElement.classList.contains("dark");
+    const hasDataThemeDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const isDarkMode = hasClassDark || hasDataThemeDark || systemPrefersDark;
 
     return isDarkMode ? "dark" : "light";
   }
@@ -34,6 +42,11 @@ export class ThemeManager {
 
   // Update manifest theme colors dynamically
   updateManifestColors() {
+    // Only run in browser environment
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
+    }
+
     const colors = this.getCurrentColors();
 
     // Update theme-color meta tag
@@ -63,14 +76,27 @@ export class ThemeManager {
 
   // Initialize theme management
   init() {
+    // Only run in browser environment
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
+    }
+
     // Update colors on load
     this.updateManifestColors();
 
     // Listen for theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", () => {
+    const handleMediaQueryChange = () => {
       this.updateManifestColors();
-    });
+    };
+
+    // Use the newer addEventListener method if available, fallback to addListener
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleMediaQueryChange);
+    } else {
+      // Fallback for older browsers
+      mediaQuery.addListener(handleMediaQueryChange);
+    }
 
     // Watch for manual theme changes (if you have a theme toggle)
     const observer = new MutationObserver((mutations) => {
@@ -88,6 +114,17 @@ export class ThemeManager {
       attributes: true,
       attributeFilter: ["class"],
     });
+
+    // Store cleanup functions for potential cleanup
+    this._cleanup = () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      } else {
+        // Fallback for older browsers
+        mediaQuery.removeListener(handleMediaQueryChange);
+      }
+      observer.disconnect();
+    };
   }
 }
 

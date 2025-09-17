@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Optimized ModernBackground - Performance-first alternative to Framer Motion version
  * Uses CSS animations, optimized mouse tracking, and device-aware rendering

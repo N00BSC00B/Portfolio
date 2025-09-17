@@ -28,133 +28,135 @@
   --animate-blink: blink 1s infinite;
   --animate-gradient: gradient 3s ease infinite;
   --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
+}
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  @keyframes pulse-subtle {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
+  50% {
+    transform: translateY(-10px);
   }
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
   }
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
-    }
+  50% {
+    opacity: 0.8;
   }
+}
 
-  @keyframes glow {
-    0% {
-      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-    100% {
-      text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
-    }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  @keyframes scale-hover {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.05);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
   }
-
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
+  70% {
+    opacity: 1;
   }
-
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
   }
+}
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
-
-  @keyframes bounce-gentle {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
+  100% {
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
   }
+}
 
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+@keyframes scale-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce-gentle {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -176,7 +178,8 @@
     --border: 222 226 230; /* #DEE2E6 */
   }
 
-  [data-theme="dark"] {
+  [data-theme="dark"],
+  .dark {
     /* Dark mode - Sophisticated charcoal palette */
     --background: 40 44 52; /* #282C34 */
     --foreground: 248 249 250; /* #F8F9FA */
@@ -206,71 +209,91 @@
     color: rgb(var(--foreground));
     transition: background-color 300ms, color 300ms;
     font-feature-settings: "rlig" 1, "calt" 1;
+    cursor: none; /* Hide default cursor for custom cursor trail */
+  }
+
+  /* Show default cursor on touch devices where custom cursor doesn't work */
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
   }
 
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px; /* <-- ADD THIS LINE for vertical scrollbars */
-    height: 6px; /* This is for horizontal scrollbars (like if you had overflow-x-auto) */
+    width: 6px;
+    height: 6px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent; /* Or a light background color */
+    background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(
-      100,
-      116,
-      139,
-      0.5
-    ); /* Tailwind slate-500 with opacity */
+    background-color: rgba(100, 116, 139, 0.5);
     border-radius: 4px;
   }
 
-  /* Optional: For Firefox (less customization options than Webkit) */
   .custom-scrollbar {
-    scrollbar-width: thin; /* "auto" or "thin" */
-    scrollbar-color: rgba(100, 116, 139, 0.5) transparent; /* thumb and track color */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
+  }
+
+  /* Hide cursor on interactive elements for desktop (non-touch) devices */
+  @media (pointer: fine) {
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"],
+    [tabindex] {
+      cursor: none !important;
+    }
+
+    /* Ensure hover states still work without cursor */
+    a:hover,
+    button:hover,
+    [role="button"]:hover {
+      cursor: none !important;
+    }
   }
 }
 
 .container {
   margin-inline: auto;
-
-  /* Dynamic padding based on screen size - reduced mobile padding for more card space */
-  padding-inline: 0.75rem; /* Reduced padding for mobile screens to give cards more width */
+  padding-inline: 0.75rem;
 }
 
 @media (min-width: 640px) {
   .container {
     padding-inline: 1.5rem;
-    max-width: 600px; /* Reduced from 640px */
+    max-width: 600px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
     padding-inline: 2rem;
-    max-width: 720px; /* Reduced from 768px */
+    max-width: 720px;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
     padding-inline: 2.5rem;
-    max-width: 900px; /* Reduced from 1024px */
+    max-width: 900px;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
     padding-inline: 3rem;
-    max-width: 1100px; /* Reduced from 1280px */
+    max-width: 1100px;
   }
 }
 
 @media (min-width: 1400px) {
   .container {
     padding-inline: 4rem;
-    max-width: 1200px; /* Significantly reduced from 1400px */
+    max-width: 1200px;
   }
 }
 
@@ -326,13 +349,6 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-
 /* Mobile viewport adjustments */
 @supports (-webkit-touch-callout: none) {
   .hero-section {
@@ -348,12 +364,10 @@
     min-width: 44px;
   }
 
-  /* Prevent horizontal scroll on mobile */
   body {
     overflow-x: hidden;
   }
 
-  /* Better spacing for mobile devices */
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -391,7 +405,6 @@
   }
 }
 
-/* Ensure hero section doesn't get cut by navbar */
 .hero-section {
   scroll-margin-top: 5rem;
 }
@@ -409,9 +422,7 @@
   }
 }
 
-/* Mobile-specific performance optimizations */
 @media (max-width: 768px) {
-  /* Reduce blur effects on mobile for better performance */
   .backdrop-blur-lg {
     backdrop-filter: blur(6px) !important;
   }
@@ -420,12 +431,10 @@
     backdrop-filter: blur(8px) !important;
   }
 
-  /* Disable complex hover effects on touch devices */
   .group:hover .group-hover\:scale-105 {
     transform: none !important;
   }
 
-  /* Enable hardware acceleration for better mobile performance */
   .cursor-trail,
   .floating-action-menu,
   .modern-background,
@@ -435,7 +444,6 @@
   }
 }
 
-/* General performance optimizations */
 img {
   image-rendering: optimizeQuality;
 }

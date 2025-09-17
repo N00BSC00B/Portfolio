@@ -6,6 +6,16 @@
         "endDate": null,
         "roles": [
             {
+                "title": "Organizer",
+                "startDate": "2025-08-22",
+                "endDate": null,
+                "description": [
+                    "Nominated as the on-campus lead (Organizer) for 2025, representing GDGoC BCET and overseeing all community activities at the campus.",
+                    "Coordinated event planning, outreach, and partnerships to expand GDG’s impact and engagement.",
+                    "Managed a diverse team of volunteers, ensuring smooth execution of workshops, hackathons, and tech talks."
+                ]
+            },
+            {
                 "title": "Python Team Lead",
                 "startDate": "2024-09-01",
                 "endDate": null,
@@ -32,8 +42,8 @@
             },
             {
                 "title": "Organizer",
-                "startDate": "2024-07-01",
-                "endDate": "2025-07-01",
+                "startDate": "2025-07-01",
+                "endDate": "2024-07-01",
                 "description": [
                     "Planned and executed technical workshops, competitions, and knowledge-sharing events to foster student growth."
                 ]

@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ScrollReveal } from "./ScrollReveal";
 import { GlassmorphismCard } from "./GlassmorphismCard";
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
@@ -90,11 +93,15 @@ export const ExperienceSection = () => {
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FF6B6B]/20 to-orange-500/20 flex items-center justify-center border border-[#FF6B6B]/30">
                         {exp.logoUrl ? (
-                          <img
-                            src={`./${exp.logoUrl}`}
-                            alt={exp.company}
-                            className="w-12 h-12 object-contain rounded-lg"
-                          />
+                          <div className="relative w-12 h-12">
+                            <Image
+                              src={`/${exp.logoUrl}`}
+                              alt={exp.company}
+                              fill
+                              className="object-contain rounded-lg"
+                              sizes="48px"
+                            />
+                          </div>
                         ) : (
                           <div className="w-12 h-12 rounded-lg bg-primary/30 flex items-center justify-center">
                             <span className="text-primary font-bold text-lg">

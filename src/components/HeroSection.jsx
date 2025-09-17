@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { TypewriterEffect } from "./TypewriterEffect";
 import { GlassmorphismCard } from "./GlassmorphismCard";

@@ -1,173 +1,84 @@
-import { useEffect, useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const CursorTrail = () => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [touchPositions, setTouchPositions] = useState([]);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const animationFrameRef = useRef();
-  const lastUpdateTime = useRef(0);
-
-  // Throttled cursor position update for better performance
-  const updateCursorPosition = useCallback((e) => {
-    const now = Date.now();
-    if (now - lastUpdateTime.current < 16) return; // ~60fps throttling
-
-    lastUpdateTime.current = now;
-
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current);
-    }
-
-    animationFrameRef.current = requestAnimationFrame(() => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
-    });
-  }, []);
 
   useEffect(() => {
-    // Enhanced device detection with performance considerations
-    const checkTouchDevice = () => {
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-      if (prefersReducedMotion) return true; // Disable cursor trail for reduced motion
+    // Check if it's a touch device
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-      // Check device capabilities
-      const lowPerformance =
-        navigator.hardwareConcurrency <= 2 || navigator.deviceMemory <= 2;
-      if (lowPerformance) return true; // Disable complex animations on low-end devices
+    if (isTouchDevice) {
+      return; // Don't show cursor trail on touch devices
+    }
 
-      return (
-        window.matchMedia("(pointer: coarse)").matches ||
-        (navigator.maxTouchPoints > 0 && window.innerWidth < 1024)
-      );
+    const updateMousePosition = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
     };
 
-    const touchDevice = checkTouchDevice();
-    setIsTouchDevice(touchDevice);
+    const hideTrail = () => {
+      setIsVisible(false);
+    };
 
-    if (!touchDevice) {
-      // Desktop cursor trail with optimized performance
-      const handleMouseLeave = () => {
-        setIsVisible(false);
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
-      };
+    window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("mouseleave", hideTrail);
 
-      document.addEventListener("mousemove", updateCursorPosition, {
-        passive: true,
-      });
-      document.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("mouseleave", hideTrail);
+    };
+  }, []);
 
-      return () => {
-        document.removeEventListener("mousemove", updateCursorPosition);
-        document.removeEventListener("mouseleave", handleMouseLeave);
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
-      };
-    } else {
-      // Optimized touch device ripple effect
-      const handleTouchStart = (e) => {
-        // Limit concurrent touch effects for performance
-        if (touchPositions.length >= 3) return;
-
-        const touch = e.touches[0];
-        const newTouch = {
-          id: Date.now(),
-          x: touch.clientX,
-          y: touch.clientY,
-        };
-
-        setTouchPositions((prev) => [...prev.slice(-2), newTouch]); // Keep max 3 touches
-
-        // Remove touch effect after animation
-        setTimeout(() => {
-          setTouchPositions((prev) => prev.filter((t) => t.id !== newTouch.id));
-        }, 800); // Reduced duration for better performance
-      };
-
-      document.addEventListener("touchstart", handleTouchStart, {
-        passive: true,
-      });
-
-      return () => {
-        document.removeEventListener("touchstart", handleTouchStart);
-      };
-    }
-  }, [updateCursorPosition, touchPositions.length]);
-
-  if (isTouchDevice) {
-    // Optimized touch ripple effects
-    return (
-      <AnimatePresence>
-        {touchPositions.map((touch) => (
-          <motion.div
-            key={touch.id}
-            className="fixed pointer-events-none z-50"
-            style={{
-              left: touch.x - 20,
-              top: touch.y - 20,
-            }}
-            initial={{ scale: 0, opacity: 0.6 }}
-            animate={{ scale: 1.5, opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: "easeOut",
-              type: "tween", // Use tween instead of spring for better mobile performance
-            }}
-          >
-            <div className="w-10 h-10 border-2 border-primary/50 rounded-full" />
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    );
+  // Don't render on touch devices
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches
+  ) {
+    return null;
   }
 
-  // Optimized desktop cursor trail
   return (
-    <div className="cursor-trail">
-      {/* Main cursor dot with optimized animations */}
+    <>
+      {/* Main cursor dot */}
       <motion.div
-        className="fixed w-3 h-3 bg-primary/70 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full pointer-events-none z-50 shadow-lg shadow-orange-500/50"
         style={{
-          left: cursorPosition.x - 6,
-          top: cursorPosition.y - 6,
+          left: mousePosition.x - 8,
+          top: mousePosition.y - 8,
         }}
         animate={{
           scale: isVisible ? 1 : 0,
-          opacity: isVisible ? 1 : 0,
+          opacity: isVisible ? 0.9 : 0,
         }}
         transition={{
-          type: "tween",
-          duration: 0.15,
-          ease: "easeOut",
+          type: "spring",
+          stiffness: 500,
+          damping: 28,
         }}
       />
 
-      {/* Trailing ring with reduced complexity */}
+      {/* Trailing circle */}
       <motion.div
-        className="fixed w-6 h-6 border border-primary/40 rounded-full pointer-events-none z-50"
+        className="fixed w-8 h-8 border-2 border-orange-500 rounded-full pointer-events-none z-50 shadow-md shadow-orange-500/30"
         style={{
-          left: cursorPosition.x - 12,
-          top: cursorPosition.y - 12,
+          left: mousePosition.x - 16,
+          top: mousePosition.y - 16,
         }}
         animate={{
           scale: isVisible ? 1 : 0,
-          opacity: isVisible ? 0.5 : 0,
+          opacity: isVisible ? 0.7 : 0,
         }}
         transition={{
-          type: "tween",
-          duration: 0.2,
-          ease: "easeOut",
-          delay: 0.05,
+          type: "spring",
+          stiffness: 350,
+          damping: 30,
+          delay: 0.1,
         }}
       />
-    </div>
+    </>
   );
 };
