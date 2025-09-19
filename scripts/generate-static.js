@@ -21,6 +21,48 @@ const generateStaticHTML = async () => {
 
     let html = fs.readFileSync(distIndexPath, "utf8");
 
+    // Check if meta tags already exist to avoid duplicates
+    const hasBasicMeta =
+      html.includes('name="description"') && html.includes('name="keywords"');
+    const hasOGMeta = html.includes('property="og:type"');
+    const hasTwitterMeta = html.includes('property="twitter:card"');
+    const hasStructuredData = html.includes('"@type": "Person"');
+    const hasSitemap = html.includes('rel="sitemap"');
+
+    console.log("📋 Meta tags analysis:");
+    console.log(
+      `  Basic SEO meta: ${hasBasicMeta ? "✅ Already present" : "❌ Missing"}`
+    );
+    console.log(
+      `  Open Graph meta: ${hasOGMeta ? "✅ Already present" : "❌ Missing"}`
+    );
+    console.log(
+      `  Twitter meta: ${hasTwitterMeta ? "✅ Already present" : "❌ Missing"}`
+    );
+    console.log(
+      `  Structured data: ${
+        hasStructuredData ? "✅ Already present" : "❌ Missing"
+      }`
+    );
+    console.log(
+      `  Sitemap reference: ${hasSitemap ? "✅ Already present" : "❌ Missing"}`
+    );
+
+    // Only add meta tags if they don't exist to avoid duplicates
+    if (
+      !hasBasicMeta ||
+      !hasOGMeta ||
+      !hasTwitterMeta ||
+      !hasStructuredData ||
+      !hasSitemap
+    ) {
+      console.log("⚠️  Some meta tags missing, adding them...");
+    } else {
+      console.log(
+        "✅ All meta tags already present, skipping meta injection to avoid duplicates"
+      );
+    }
+
     // Enhanced SEO meta tags to inject
     const seoMetaTags = `
     <!-- Enhanced SEO Meta Tags -->
@@ -46,7 +88,7 @@ const generateStaticHTML = async () => {
     <meta property="twitter:title" content="Sayan Barma | Full-Stack & AI Developer" />
     <meta property="twitter:description" content="Portfolio of Sayan Barma - a developer focused on backend systems, AI, and automation." />
     <meta property="twitter:image" content="https://sayan-barma-portfolio.netlify.app/social-preview.jpg" />
-    <meta property="twitter:creator" content="@sayanbarma" />
+    <meta property="twitter:creator" content="@noobscoob_" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sayan-barma-portfolio.netlify.app/" />
@@ -67,7 +109,7 @@ const generateStaticHTML = async () => {
       "sameAs": [
         "https://github.com/N00BSC00B",
         "https://www.linkedin.com/in/sayan-barma-ab0973289/",
-        "https://twitter.com/sayanbarma"
+        "https://x.com/noobscoob_"
       ],
       "alumniOf": {
         "@type": "CollegeOrUniversity",
@@ -104,14 +146,33 @@ const generateStaticHTML = async () => {
     }
     </script>`;
 
-    // Insert meta tags in the head
-    html = html.replace("</head>", `${seoMetaTags}\n  </head>`);
+    // Only inject meta tags if some are missing
+    if (
+      !hasBasicMeta ||
+      !hasOGMeta ||
+      !hasTwitterMeta ||
+      !hasStructuredData ||
+      !hasSitemap
+    ) {
+      html = html.replace("</head>", `${seoMetaTags}\n  </head>`);
+      console.log("✅ Added missing meta tags");
+    } else {
+      console.log("✅ Skipped meta tag injection - all already present");
+    }
 
-    // Update the title
-    html = html.replace(
-      /<title>.*?<\/title>/,
-      "<title>Sayan Barma | Full-Stack & AI Developer Portfolio</title>"
-    );
+    // Update the title only if it's different
+    const currentTitle = html.match(/<title>(.*?)<\/title>/)?.[1];
+    const targetTitle = "Sayan Barma | Full-Stack & AI Developer Portfolio";
+
+    if (currentTitle && currentTitle !== targetTitle) {
+      html = html.replace(
+        /<title>.*?<\/title>/,
+        `<title>${targetTitle}</title>`
+      );
+      console.log("✅ Updated page title");
+    } else {
+      console.log("✅ Page title already optimized");
+    }
 
     // Try to render React app server-side (optional enhancement)
     try {
@@ -234,7 +295,9 @@ const generateStaticHTML = async () => {
 
     console.log("✅ SEO-optimized static HTML generated successfully!");
     console.log("📍 Location: dist/index.html");
-    console.log("🔍 Features: Enhanced SEO, Structured Data, Static Content");
+    console.log(
+      "🔍 Features: No Duplicate Meta Tags, Enhanced SEO, Static Content"
+    );
     console.log(
       "🚀 Your site is now ready for deployment with maximum SEO optimization!"
     );
