@@ -19,16 +19,9 @@ export const useScrollReveal = (options = {}) => {
   const elementRef = useRef(null);
   const cleanupRef = useRef(null);
 
-  // Memoize options to prevent unnecessary re-renders
-  const optionsRef = useRef(options);
-  optionsRef.current = options;
-
   useEffect(() => {
     if (elementRef.current) {
-      cleanupRef.current = createScrollReveal(
-        elementRef.current,
-        optionsRef.current
-      );
+      cleanupRef.current = createScrollReveal(elementRef.current, options);
     }
 
     return () => {
@@ -36,7 +29,15 @@ export const useScrollReveal = (options = {}) => {
         cleanupRef.current();
       }
     };
-  }, []);
+  }, [
+    options.direction,
+    options.distance,
+    options.duration,
+    options.delay,
+    options.easing,
+    options.threshold,
+    options.once,
+  ]);
 
   return elementRef;
 };
@@ -47,16 +48,9 @@ export const useHoverAnimation = (options = {}) => {
   const cleanupRef = useRef(null);
   const { isLowPerformance } = getDeviceCapabilities();
 
-  // Memoize options to prevent unnecessary re-renders
-  const optionsRef = useRef(options);
-  optionsRef.current = options;
-
   useEffect(() => {
     if (elementRef.current && !isLowPerformance) {
-      cleanupRef.current = addHoverAnimation(
-        elementRef.current,
-        optionsRef.current
-      );
+      cleanupRef.current = addHoverAnimation(elementRef.current, options);
     }
 
     return () => {
@@ -64,7 +58,13 @@ export const useHoverAnimation = (options = {}) => {
         cleanupRef.current();
       }
     };
-  }, [isLowPerformance]);
+  }, [
+    isLowPerformance,
+    options.scale,
+    options.translateY,
+    options.duration,
+    options.easing,
+  ]);
 
   return elementRef;
 };
@@ -74,18 +74,12 @@ export const useTypewriter = (texts, options = {}) => {
   const elementRef = useRef(null);
   const cleanupRef = useRef(null);
 
-  // Memoize options and texts to prevent unnecessary re-renders
-  const optionsRef = useRef(options);
-  const textsRef = useRef(texts);
-  optionsRef.current = options;
-  textsRef.current = texts;
-
   useEffect(() => {
-    if (elementRef.current && textsRef.current.length > 0) {
+    if (elementRef.current && texts.length > 0) {
       cleanupRef.current = createTypewriterEffect(
         elementRef.current,
-        textsRef.current,
-        optionsRef.current
+        texts,
+        options
       );
     }
 
@@ -94,7 +88,13 @@ export const useTypewriter = (texts, options = {}) => {
         cleanupRef.current();
       }
     };
-  }, []);
+  }, [
+    texts,
+    options.typeSpeed,
+    options.deleteSpeed,
+    options.pauseDuration,
+    options.loop,
+  ]);
 
   return elementRef;
 };
@@ -109,22 +109,18 @@ export const useIntersectionObserver = (callback, options = {}) => {
     callbackRef.current = callback;
   }, [callback]);
 
-  // Memoize options to prevent unnecessary re-renders
-  const optionsRef = useRef(options);
-  optionsRef.current = options;
-
   useEffect(() => {
     let cleanup;
     if (elementRef.current) {
       cleanup = intersectionObserver.observe(
         elementRef.current,
         (entry) => callbackRef.current(entry),
-        optionsRef.current
+        options
       );
     }
 
     return cleanup;
-  }, []);
+  }, [options.threshold, options.rootMargin]);
 
   return elementRef;
 };
@@ -342,10 +338,6 @@ export const useMountAnimation = (options = {}) => {
     to = { opacity: 1, transform: "translateY(0) scale(1)" },
   } = options;
 
-  // Memoize serialized values to prevent unnecessary re-renders
-  const fromString = JSON.stringify(from);
-  const toString = JSON.stringify(to);
-
   useEffect(() => {
     if (elementRef.current) {
       // Set initial state
@@ -364,12 +356,12 @@ export const useMountAnimation = (options = {}) => {
 
       return () => clearTimeout(timeoutId);
     }
-  }, [duration, easing, delay, from, to, fromString, toString]);
+  }, [duration, easing, delay, JSON.stringify(from), JSON.stringify(to)]);
 
   return { elementRef, isMounted };
 };
 
-const animationHooks = {
+export default {
   useScrollReveal,
   useHoverAnimation,
   useTypewriter,
@@ -381,5 +373,3 @@ const animationHooks = {
   useAnimationConfig,
   useMountAnimation,
 };
-
-export default animationHooks;

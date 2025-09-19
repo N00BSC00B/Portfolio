@@ -18,7 +18,7 @@
             {
                 "title": "Python Team Lead",
                 "startDate": "2024-09-01",
-                "endDate": null,
+                "endDate": "2025-08-22",
                 "description": [
                     "Led Python-focused workshops, hackathons, and collaborative projects to strengthen student expertise.",
                     "Partnered with peers and industry experts to deliver technical sessions and guest lectures on advanced Python topics."
@@ -42,8 +42,8 @@
             },
             {
                 "title": "Organizer",
-                "startDate": "2025-07-01",
-                "endDate": "2024-07-01",
+                "startDate": "2024-07-01",
+                "endDate": "2025-07-01",
                 "description": [
                     "Planned and executed technical workshops, competitions, and knowledge-sharing events to foster student growth."
                 ]

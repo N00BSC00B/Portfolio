@@ -1,72 +1,100 @@
 {
-    "name": "Sayan Barma | Portfolio",
+    "name": "Sayan Barma | Full-Stack & AI Developer Portfolio",
     "short_name": "Sayan Barma",
-    "description": "Portfolio of Sayan Barma - Full-Stack Developer specializing in React, Node.js, Python, and AI/ML. Showcasing innovative web applications, automation tools, and cross-platform solutions.",
+    "description": "Portfolio of Sayan Barma, a Full-Stack Developer specializing in Python, FastAPI, React, and AI-driven automation solutions.",
     "start_url": "/",
     "display": "standalone",
-    "orientation": "portrait-primary",
+    "orientation": "any",
     "background_color": "#0A0E1A",
-    "theme_color": "#0A0E1A",
-    "display_override": [
-        "window-controls-overlay",
-        "standalone"
-    ],
+    "theme_color": "#EA580C",
+    "scope": "/",
+    "lang": "en-US",
     "categories": [
         "productivity",
-        "developer",
-        "portfolio"
+        "business",
+        "developer tools"
     ],
-    "lang": "en",
-    "scope": "/",
     "icons": [
         {
-            "src": "icon-192.png",
+            "src": "/icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
-            "src": "icon-512.png",
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
-            "src": "favicon.jpg",
-            "sizes": "48x48 96x96",
-            "type": "image/jpeg"
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
-            "src": "apple-touch-icon.png",
+            "src": "/apple-touch-icon.png",
             "sizes": "180x180",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/favicon.ico",
+            "sizes": "16x16 32x32 48x48",
+            "type": "image/x-icon",
+            "purpose": "any"
         }
     ],
     "shortcuts": [
         {
             "name": "Projects",
             "short_name": "Projects",
-            "description": "View my latest projects",
+            "description": "View my development projects",
             "url": "/#projects",
             "icons": [
                 {
-                    "src": "icon-192.png",
-                    "sizes": "192x192"
+                    "src": "/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "About",
+            "short_name": "About",
+            "description": "Learn more about me",
+            "url": "/#about",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
                 }
             ]
         },
         {
             "name": "Contact",
             "short_name": "Contact",
-            "description": "Get in touch with me",
+            "description": "Get in touch",
             "url": "/#contact",
             "icons": [
                 {
-                    "src": "icon-192.png",
-                    "sizes": "192x192"
+                    "src": "/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
                 }
             ]
         }
     ],
-    "prefer_related_applications": false
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 480
+    }
 }
