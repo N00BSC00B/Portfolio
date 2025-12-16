@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import { ScrollingRoles } from "../effects/ScrollingRoles";
 import { GlassmorphismCard } from "../ui/GlassmorphismCard";
 import { useAnimationConfig } from "@/hooks/useAnimations";
@@ -90,13 +90,10 @@ export const HeroSection = () => {
           maxHeight: "min(90vw, 384px)",
         }}
       >
-        <Image
-          src="/hero.jpg"
+        <motion.img
+          src="./hero.jpg"
           alt="Sayan Barma"
-          fill
-          priority
-          sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, (max-width: 1280px) 320px, 384px"
-          className="object-cover"
+          className="w-full h-full object-cover"
         />
       </motion.div>
 
