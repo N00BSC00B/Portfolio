@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -7,7 +8,7 @@ export const GlassmorphismCard = ({
   className = "",
   hoverEffect = true,
   blur = "backdrop-blur-lg",
-  background = "bg-white/10 dark:bg-white/5",
+  background = "bg-white/10 dark:bg-zinc-900/40",
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);

@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight, ExternalLink, Github, X, ArrowLeft } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import ReactMarkdown from "react-markdown";

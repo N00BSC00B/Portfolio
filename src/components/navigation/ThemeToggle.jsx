@@ -1,3 +1,4 @@
+"use client";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../../lib/utils"; // Assuming you have this utility for conditional classes
@@ -10,21 +11,29 @@ export const ThemeToggle = ({ className }) => {
     const storedTheme = localStorage.getItem("theme");
     const htmlElement = document.documentElement;
 
-    if (storedTheme === "light") {
-      setIsDarkMode(false);
-      htmlElement.setAttribute("data-theme", "light");
-    } else if (storedTheme === "dark") {
+    const enableDark = () => {
       setIsDarkMode(true);
       htmlElement.setAttribute("data-theme", "dark");
+      htmlElement.classList.add("dark");
+    };
+
+    const enableLight = () => {
+      setIsDarkMode(false);
+      htmlElement.setAttribute("data-theme", "light");
+      htmlElement.classList.remove("dark");
+    };
+
+    if (storedTheme === "light") {
+      enableLight();
+    } else if (storedTheme === "dark") {
+      enableDark();
     } else {
       // If no theme is stored, check system preference
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        setIsDarkMode(true);
-        htmlElement.setAttribute("data-theme", "dark");
+        enableDark();
         localStorage.setItem("theme", "dark");
       } else {
-        setIsDarkMode(false);
-        htmlElement.setAttribute("data-theme", "light");
+        enableLight();
         localStorage.setItem("theme", "light");
       }
     }
@@ -35,10 +44,12 @@ export const ThemeToggle = ({ className }) => {
 
     if (isDarkMode) {
       htmlElement.setAttribute("data-theme", "light");
+      htmlElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
     } else {
       htmlElement.setAttribute("data-theme", "dark");
+      htmlElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
       setIsDarkMode(true);
     }

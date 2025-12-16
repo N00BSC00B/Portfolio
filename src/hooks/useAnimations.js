@@ -293,18 +293,23 @@ export const useProgressiveLoader = (src, placeholder) => {
 
 // Hook for device-specific animation configurations
 export const useAnimationConfig = () => {
-  const [config, setConfig] = useState(() => ({
-    ...getDeviceCapabilities(),
-    ...getAnimationPresets(),
-  }));
+  // Initialize with a safe default matching SSR (no complex animations initially)
+  const [config, setConfig] = useState({
+    isLowPerformance: false,
+    canUseComplexAnimations: false,
+  });
 
   useEffect(() => {
+    // Now running on client, we can detect real capabilities
     const updateConfig = () => {
       setConfig({
         ...getDeviceCapabilities(),
         ...getAnimationPresets(),
       });
     };
+
+    // Initial update
+    updateConfig();
 
     // Update on window resize or connection change
     window.addEventListener("resize", updateConfig);

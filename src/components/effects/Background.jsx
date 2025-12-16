@@ -1,3 +1,6 @@
+"use client";
+"use client";
+
 /**
  * Lightweight ModernBackground - High performance alternative to Framer Motion version
  * Uses CSS animations and minimal JavaScript for optimal performance
@@ -10,15 +13,17 @@ export const Background = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const config = useAnimationConfig();
 
-  // Memoized floating elements with performance considerations
-  const floatingElements = useMemo(() => {
-    const elements = [];
+  // State for floating elements to avoid hydration mismatch
+  const [floatingElements, setFloatingElements] = useState([]);
+
+  useEffect(() => {
     const elementCount = config.isLowPerformance
       ? 3
       : config.canUseComplexAnimations
       ? 8
       : 5;
 
+    const elements = [];
     for (let i = 0; i < elementCount; i++) {
       elements.push({
         id: i,
@@ -30,7 +35,7 @@ export const Background = () => {
         opacity: Math.random() * 0.3 + 0.1,
       });
     }
-    return elements;
+    setFloatingElements(elements);
   }, [config.isLowPerformance, config.canUseComplexAnimations]);
 
   const handleMouseMove = (e) => {

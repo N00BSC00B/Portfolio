@@ -1,3 +1,4 @@
+"use client";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { useToast } from "../../hooks/use-toast";
@@ -22,61 +23,18 @@ export const ContactSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    const discordWebhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-
-    const payload = {
-      embeds: [
-        {
-          title: "New Portfolio Contact Form Submission",
-          color: 0x3498db,
-          fields: [
-            {
-              name: "Name",
-              value: formData.name,
-              inline: true,
-            },
-            {
-              name: "Email",
-              value: formData.email,
-              inline: true,
-            },
-            {
-              name: "Message",
-              value: formData.message,
-              inline: false,
-            },
-          ],
-          timestamp: new Date().toISOString(),
-          footer: {
-            text: "Portfolio Contact Form",
-          },
-        },
-      ],
-    };
-
-    // Debug: Check if webhook URL is loaded
-    if (!discordWebhookUrl) {
-      console.error("Discord webhook URL not found in environment variables");
-      toast({
-        title: "Configuration Error",
-        description: "Contact form is not properly configured.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const response = await fetch(discordWebhookUrl, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         toast({
@@ -85,20 +43,17 @@ export const ContactSection = () => {
         });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        console.error(
-          "Discord webhook error:",
-          response.status,
-          response.statusText
-        );
+        console.error("Submission error:", data.error);
         toast({
           title: "Failed to send message.",
           description:
+            data.error ||
             "There was an issue sending your message. Please try again.",
           variant: "destructive",
         });
       }
     } catch (error) {
-      console.error("Network or fetch error:", error);
+      console.error("Network error:", error);
       toast({
         title: "An error occurred.",
         description:

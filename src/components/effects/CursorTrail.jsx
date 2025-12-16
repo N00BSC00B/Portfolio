@@ -1,3 +1,6 @@
+"use client";
+"use client";
+
 /**
  * Lightweight CursorTrail - High performance alternative to Framer Motion version
  * Uses direct DOM manipulation for reliable visibility
@@ -55,7 +58,7 @@ export const CursorTrail = () => {
       dot.style.boxShadow = `0 0 ${size * 2.5}px rgba(249, 115, 22, ${
         opacity * 0.6
       })`;
-      dot.style.mixBlendMode = "screen";
+      dot.style.mixBlendMode = "normal";
       dot.style.willChange = "transform"; // Optimize for animations
 
       document.body.appendChild(dot);

@@ -1,7 +1,10 @@
+"use client";
+"use client";
+
 import { cn } from "../../lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "../navigation/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -17,8 +20,8 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
   const ticking = useRef(false);
 
   // Optimized scroll handler with requestAnimationFrame
@@ -38,11 +41,11 @@ export const Navbar = () => {
   }, []);
 
   const handleNavClick = (id) => {
-    if (location.pathname === "/") {
+    if (pathname === "/") {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate(`/#${id}`);
+      router.push(`/#${id}`);
     }
     setIsMenuOpen(false); // Close mobile menu on nav click
   };

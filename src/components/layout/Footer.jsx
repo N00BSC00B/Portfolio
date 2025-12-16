@@ -1,3 +1,4 @@
+"use client";
 import { ArrowUp, Github, Linkedin, Instagram, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { GlassmorphismCard } from "../ui/GlassmorphismCard";

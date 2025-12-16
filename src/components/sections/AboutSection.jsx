@@ -1,3 +1,4 @@
+"use client";
 import { Briefcase, Code, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "../effects/ScrollReveal";

@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft, Zap, Search } from "lucide-react";
-import { Navbar } from "../components/layout/Navbar";
-import { GlassmorphismCard } from "../components/ui/GlassmorphismCard";
+import { Navbar } from "@/components/layout/Navbar";
+import { GlassmorphismCard } from "@/components/ui/GlassmorphismCard";
 
 const NotFound = () => {
   return (
@@ -139,7 +141,7 @@ const NotFound = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/"
+                href="/"
                 className="group relative inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/25"
               >
                 <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -164,7 +166,9 @@ const NotFound = () => {
               whileTap={{ scale: 0.95 }}
             >
               <button
-                onClick={() => window.history.back()}
+                onClick={() =>
+                  typeof window !== "undefined" && window.history.back()
+                }
                 className="group inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold border-2 border-primary/50 text-primary rounded-full hover:bg-primary/10 hover:border-primary transition-all duration-300"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
